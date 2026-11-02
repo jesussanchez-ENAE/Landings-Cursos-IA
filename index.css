@@ -1183,8 +1183,9 @@ footer {
 
 .course-meta-row {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
+    gap: 1rem;
     font-size: 0.85rem;
 }
 
@@ -1195,13 +1196,19 @@ footer {
     text-transform: uppercase;
     display: flex;
     align-items: center;
-    gap: 0.4rem;
+    gap: 0.45rem;
+    flex-shrink: 0;
+    line-height: 1.4;
+    padding-top: 2px;
 }
 
 .course-meta-value {
     font-weight: 700;
     color: #1a1a1a;
     font-family: var(--font-heading);
+    text-align: right;
+    margin-left: auto;
+    line-height: 1.35;
 }
 
 .course-tools-row {
