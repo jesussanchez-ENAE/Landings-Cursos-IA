@@ -272,6 +272,317 @@ const initAccessibleTabs = () => {
     });
 };
 
+// ==========================================================================
+// ANIME.JS ANIMATION ENGINE (Scroll Reveal, Interactive Choreo & Data Counters)
+// ==========================================================================
+const initAnimeAnimations = () => {
+    // 1. Accessibility Check: respect reduced motion preferences
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion || typeof anime === 'undefined') {
+        // Fallback: Ensure everything is immediately visible and at target height
+        document.querySelectorAll('.dossier-bar-fill').forEach(bar => {
+            const h = bar.getAttribute('data-height');
+            if (h) bar.style.height = `${h}%`;
+        });
+        return;
+    }
+
+    // 2. Generic Counter Animator (supports prefixes, decimals, suffixes)
+    const animateCounter = (el) => {
+        const rawTarget = el.getAttribute('data-counter');
+        if (!rawTarget) return;
+        const targetVal = parseFloat(rawTarget);
+        if (isNaN(targetVal)) return;
+
+        const prefix = el.getAttribute('data-prefix') || '';
+        const suffix = el.getAttribute('data-suffix') || '';
+        const isDecimal = targetVal % 1 !== 0;
+
+        const counterObj = { value: 0 };
+        anime({
+            targets: counterObj,
+            value: targetVal,
+            round: isDecimal ? 10 : 1,
+            easing: 'easeOutExpo',
+            duration: 1600,
+            update: () => {
+                el.textContent = `${prefix}${isDecimal ? counterObj.value.toFixed(1) : Math.round(counterObj.value)}${suffix}`;
+            }
+        });
+    };
+
+    // 3. Hero Entry Choreography
+    const initHeroAnimation = () => {
+        const heroBadge = document.querySelector('.hero-badge-box');
+        const heroTitle = document.querySelector('.hero h1');
+        const heroDesc = document.querySelector('.hero p');
+        const heroBadges = document.querySelectorAll('.hero [style*="display: flex; flex-wrap: wrap; gap: 0.8rem;"] > *');
+        const heroForm = document.querySelector('.hero-form');
+
+        // Set initial states to prevent flash
+        if (heroBadge) heroBadge.style.opacity = '0';
+        if (heroTitle) heroTitle.style.opacity = '0';
+        if (heroDesc) heroDesc.style.opacity = '0';
+        heroBadges.forEach(b => b.style.opacity = '0');
+        if (heroForm) heroForm.style.opacity = '0';
+
+        const tl = anime.timeline({
+            easing: 'easeOutCubic'
+        });
+
+        if (heroBadge) {
+            tl.add({
+                targets: heroBadge,
+                translateY: [-20, 0],
+                opacity: [0, 1],
+                duration: 700
+            });
+        }
+
+        if (heroTitle) {
+            tl.add({
+                targets: heroTitle,
+                translateY: [35, 0],
+                opacity: [0, 1],
+                duration: 900
+            }, '-=400');
+        }
+
+        if (heroDesc) {
+            tl.add({
+                targets: heroDesc,
+                translateY: [25, 0],
+                opacity: [0, 1],
+                duration: 750
+            }, '-=500');
+        }
+
+        if (heroBadges.length) {
+            tl.add({
+                targets: heroBadges,
+                translateY: [20, 0],
+                opacity: [0, 1],
+                delay: anime.stagger(90),
+                duration: 650
+            }, '-=400');
+        }
+
+        if (heroForm) {
+            tl.add({
+                targets: heroForm,
+                scale: [0.94, 1],
+                translateY: [30, 0],
+                opacity: [0, 1],
+                duration: 1000,
+                easing: 'easeOutExpo'
+            }, '-=600');
+        }
+    };
+
+    // Trigger hero animation smoothly on load
+    initHeroAnimation();
+
+    // 4. Dossier Slide 3 Infographic Canvas & Bar Chart
+    let slide3Animated = false;
+    const animateSlide3 = (canvasEl) => {
+        if (slide3Animated) return;
+        slide3Animated = true;
+
+        // Abstract Composition Shapes: Scale in with subtle spring
+        const shapes = canvasEl.querySelectorAll('.dossier-bg-rect-1, .dossier-bg-rect-2, .dossier-cloud-art, .dossier-bg-rect-3');
+        if (shapes.length) {
+            anime({
+                targets: shapes,
+                scale: [0.85, 1],
+                opacity: [0, 1],
+                duration: 1100,
+                delay: anime.stagger(120),
+                easing: 'easeOutCubic'
+            });
+        }
+
+        // Connecting Lines: Draw with origin scaling
+        const vLines = canvasEl.querySelectorAll('.dossier-line-v1, .dossier-line-v2');
+        if (vLines.length) {
+            vLines.forEach(l => l.style.transformOrigin = 'top center');
+            anime({
+                targets: vLines,
+                scaleY: [0, 1],
+                opacity: [0, 1],
+                duration: 750,
+                delay: 250,
+                easing: 'easeInOutQuad'
+            });
+        }
+
+        const hLines = canvasEl.querySelectorAll('.dossier-line-h1, .dossier-line-h2');
+        if (hLines.length) {
+            hLines.forEach(l => l.style.transformOrigin = 'left center');
+            anime({
+                targets: hLines,
+                scaleX: [0, 1],
+                opacity: [0, 1],
+                duration: 750,
+                delay: 250,
+                easing: 'easeInOutQuad'
+            });
+        }
+
+        // White Guide Dots: Elastic pop
+        const dots = canvasEl.querySelectorAll('.dossier-dot-v1, .dossier-dot-v2, .dossier-dot-h1, .dossier-dot-h2');
+        if (dots.length) {
+            anime({
+                targets: dots,
+                scale: [0, 1.4, 1],
+                opacity: [0, 1],
+                duration: 650,
+                delay: 450,
+                easing: 'easeOutElastic(1, .6)'
+            });
+        }
+
+        // Data Counters (88%, 78M, +30%, x2, $312B)
+        const counters = canvasEl.querySelectorAll('[data-counter]');
+        counters.forEach((el, index) => {
+            setTimeout(() => {
+                animateCounter(el);
+            }, 100 + index * 90);
+        });
+
+        // Node Descriptions: Fade & rise
+        const descs = canvasEl.querySelectorAll('.dossier-text-top, .dossier-text-left, .dossier-text-right, .dossier-text-bottom');
+        if (descs.length) {
+            anime({
+                targets: descs,
+                translateY: [15, 0],
+                opacity: [0, 1],
+                duration: 800,
+                delay: anime.stagger(100, { start: 350 }),
+                easing: 'easeOutQuad'
+            });
+        }
+
+        // Bar Chart Bars Growth
+        const bars = canvasEl.querySelectorAll('.dossier-bar-fill');
+        bars.forEach((bar, i) => {
+            const targetHeight = bar.getAttribute('data-height') || 50;
+            bar.style.height = '0%';
+            anime({
+                targets: bar,
+                height: ['0%', `${targetHeight}%`],
+                duration: 1300,
+                delay: 300 + (i * 120),
+                easing: 'easeOutQuart'
+            });
+        });
+    };
+
+    // 5. Section-Based Observer for Scroll Revelations
+    const sectionObserver = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            const target = entry.target;
+
+            // A. Contexto Slide 3
+            if (target.id === 'contexto' || target.querySelector('.dossier-slide-canvas')) {
+                const canvas = target.querySelector('.dossier-slide-canvas') || target;
+                animateSlide3(canvas);
+                obs.unobserve(target);
+            }
+
+            // B. Course Cards Section
+            else if (target.id === 'cursos') {
+                const cards = target.querySelectorAll('.portfolio-course-card');
+                if (cards.length) {
+                    anime({
+                        targets: cards,
+                        translateY: [50, 0],
+                        opacity: [0, 1],
+                        scale: [0.97, 1],
+                        duration: 850,
+                        delay: anime.stagger(160),
+                        easing: 'easeOutCubic'
+                    });
+                }
+                obs.unobserve(target);
+            }
+
+            // C. Itinerario / Pathway Steps
+            else if (target.id === 'itinerario') {
+                const steps = target.querySelectorAll('.pathway-step');
+                if (steps.length) {
+                    anime({
+                        targets: steps,
+                        translateX: [-40, 0],
+                        opacity: [0, 1],
+                        duration: 800,
+                        delay: anime.stagger(140),
+                        easing: 'easeOutCubic'
+                    });
+                }
+                obs.unobserve(target);
+            }
+
+            // D. Docentes / Teachers
+            else if (target.id === 'profesores') {
+                const teachers = target.querySelectorAll('.teacher-card');
+                if (teachers.length) {
+                    anime({
+                        targets: teachers,
+                        translateY: [40, 0],
+                        scale: [0.95, 1],
+                        opacity: [0, 1],
+                        duration: 800,
+                        delay: anime.stagger(130),
+                        easing: 'easeOutCubic'
+                    });
+                }
+                obs.unobserve(target);
+            }
+
+            // E. Inversión & Comparativa
+            else if (target.id === 'inversion') {
+                const elements = target.querySelectorAll('.pricing-hero-card, .matrix-container, .pricing-card-col');
+                if (elements.length) {
+                    anime({
+                        targets: elements,
+                        translateY: [35, 0],
+                        opacity: [0, 1],
+                        duration: 850,
+                        delay: anime.stagger(150),
+                        easing: 'easeOutCubic'
+                    });
+                }
+                obs.unobserve(target);
+            }
+
+            // F. Calendario
+            else if (target.id === 'calendario') {
+                const calElements = target.querySelectorAll('.cal-tabs, .cal-month-card.active, .cal-legend');
+                if (calElements.length) {
+                    anime({
+                        targets: calElements,
+                        translateY: [30, 0],
+                        opacity: [0, 1],
+                        duration: 800,
+                        delay: anime.stagger(120),
+                        easing: 'easeOutCubic'
+                    });
+                }
+                obs.unobserve(target);
+            }
+        });
+    }, {
+        threshold: 0.12,
+        rootMargin: '0px 0px -50px 0px'
+    });
+
+    // Observe all key sections
+    document.querySelectorAll('#contexto, #cursos, #itinerario, #calendario, #profesores, #inversion').forEach(sec => {
+        sectionObserver.observe(sec);
+    });
+};
+
 const initAll = () => {
     initProgressiveDisclosure();
     initAccessibleTabs();
@@ -317,25 +628,9 @@ const initAll = () => {
             });
         });
     }
-    
-    // Observer for reveal-on-scroll animations
-    const observerOptions = { threshold: 0.05 };
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-                observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
 
-    document.querySelectorAll('.glass, .bento-card').forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'all 0.6s ease-out';
-        observer.observe(el);
-    });
+    // Initialize Anime.js animations
+    initAnimeAnimations();
 };
 
 if (document.readyState === 'loading') {
