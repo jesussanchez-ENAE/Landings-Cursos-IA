@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Fábrica de Agentes | ENAE Business School</title>
+    <link rel="stylesheet" href="fonts.css">
+    <link rel="stylesheet" href="index.css?v=2">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* Specific section styles */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(to right, rgba(10,10,10,0.9), rgba(10,10,10,0.5)), url('./Links/portrait-of-smiling-professional-young-man-in-suit-2026-01-05-06-28-34-utc.jpg');
+            background-size: cover;
+            background-position: center;
+            padding-top: 8rem;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-form {
+            flex: 0 0 400px;
+            padding: 2rem 2.2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.35rem;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--secondary-accent);
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            background: var(--input-bg);
+            border: 1px solid var(--border-color);
+            color: white;
+            border-radius: 0.5rem;
+            font-family: var(--font-body);
+        }
+
+        .fundae-badge img {
+            max-height: 28px;
+            width: auto;
+            margin-top: 0.5rem;
+        }
+
+        .check-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .check-list li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+            color: #ccc;
+        }
+
+        .check-list li::before {
+            content: '✔';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .program-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 1.5rem;
+        }
+
+        .program-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+            color: #aaa;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding-bottom: 0.8rem;
+        }
+
+        .program-list li:last-child {
+            border-bottom: none;
+        }
+
+        .program-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-family: var(--font-mono);
+        }
+
+        /* Comparativa Section Styles */
+        .step-card {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 1.5rem;
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: 0.75rem;
+            transition: var(--transition);
+        }
+
+        .step-card:hover {
+            border-color: rgba(168, 23, 48, 0.3);
+            transform: translateY(-1px);
+            background: rgba(168, 23, 48, 0.02);
+        }
+
+        .step-card.teal {
+            background: rgba(29, 158, 117, 0.01);
+            border-color: rgba(29, 158, 117, 0.08);
+        }
+
+        .step-card.teal:hover {
+            border-color: rgba(29, 158, 117, 0.3);
+            transform: translateY(-1px);
+            background: rgba(29, 158, 117, 0.03);
+        }
+
+        .step-connector {
+            width: 1px;
+            height: 16px;
+            background: rgba(255, 255, 255, 0.05);
+            margin: 0 auto;
+        }
+
+        .step-connector.teal {
+            background: rgba(29, 158, 117, 0.15);
+        }
+
+        .bar-fill {
+            height: 100%;
+            border-radius: 6px;
+            transform-origin: left;
+            animation: barIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+
+        /* ── INTERACTIVE CALENDAR ───────────────────────────────────────── */
+        .cal-wrap {
+            background: #ffffff;
+            border-radius: 1.5rem;
+            padding: 2rem;
+            box-shadow: 0 4px 32px rgba(0,0,0,0.06);
+            border: 1px solid rgba(0,0,0,0.06);
+        }
+
+        .cal-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 4px;
+        }
+
+        .cal-header > div {
+            text-align: center;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: #999;
+            padding: 0.5rem 0 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .cal-day {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            font-family: var(--font-mono);
+            color: #aaa;
+            border-radius: 8px;
+            cursor: default;
+            transition: var(--transition);
+            user-select: none;
+        }
+
+        .cal-day.empty {
+            pointer-events: none;
+        }
+
+        /* Session day styling */
+        .cal-day.cal-session {
+            background: var(--accent-color);
+            color: #ffffff !important;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            box-shadow: 0 4px 12px rgba(168, 23, 48, 0.3);
+            position: relative;
+        }
+
+        .cal-day.cal-session:hover {
+            transform: scale(1.15);
+            box-shadow: 0 6px 20px rgba(168, 23, 48, 0.5);
+        }
+
+        .cal-day.cal-session:focus {
+            outline: 2px solid var(--accent-color);
+            outline-offset: 3px;
+        }
+
+        .cal-day.cal-session.active {
+            background: #7a0f22;
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(168, 23, 48, 0.6);
+        }
+
+        /* Detail panel */
+        .cal-detail-wrap {
+            background: #ffffff;
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+            min-height: 420px;
+            box-shadow: 0 4px 32px rgba(0,0,0,0.06);
+            border: 1px solid rgba(0,0,0,0.06);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cal-detail-empty {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .cal-detail {
+            width: 100%;
+            animation: calDetailIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+            align-self: flex-start;
+        }
+
+        @keyframes calDetailIn {
+            from { opacity: 0; transform: translateY(16px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .cal-detail-tag {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--accent-color);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .cal-detail-title {
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            color: #0e0e0e;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            font-weight: 900;
+        }
+
+        .cal-detail-desc {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .cal-detail-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .cal-detail-list li {
+            font-size: 0.9rem;
+            color: #444;
+            padding-left: 1.4rem;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        .cal-detail-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-family: var(--font-mono);
+        }
+
+        @keyframes barIn {
+            from { transform: scaleX(0); }
+            to { transform: scaleX(1); }
+        }
+
+        /* Footer Custom Styles */
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .footer-social a {
+            color: rgba(255, 255, 255, 0.6);
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .footer-social a svg {
+            width: 20px;
+            height: 20px;
+            stroke-width: 2px;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .footer-social a:hover {
+            color: #ffffff;
+            border-color: rgba(168, 23, 48, 0.4);
+            background: rgba(168, 23, 48, 0.15);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(168, 23, 48, 0.3);
+        }
+
+        .footer-links {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.15);
+            font-family: var(--font-mono);
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #666;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        /* ── LIGHT SECTION THEME ─────────────────────────────────────────── */
+        .section-light {
+            background: #f2efe8 !important;
+            border-top: none !important;
+        }
+
+        /* Text inversions */
+        .section-light h2,
+        .section-light h3,
+        .section-light h4,
+        .section-light span:not(.text-gradient):not(.num):not(.accordion-icon) {
+            color: #0e0e0e;
+        }
+
+        .section-light p {
+            color: #555555;
+        }
+
+        /* Accent mono labels keep the brand crimson */
+        .section-light [style*="color: var(--accent-color)"],
+        .section-light [style*="color:var(--accent-color)"] {
+            color: var(--accent-color) !important;
+        }
+
+        /* Bento cards go white with a soft shadow */
+        .section-light .bento-card {
+            background: #ffffff !important;
+            border: 1px solid rgba(0, 0, 0, 0.06) !important;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+        }
+
+        .section-light .bento-card::before {
+            background: radial-gradient(800px circle at var(--mouse-x, 0px) var(--mouse-y, 0px), rgba(168, 23, 48, 0.07), transparent 40%) !important;
+        }
+
+        .section-light .bento-card:hover {
+            border-color: rgba(168, 23, 48, 0.3) !important;
+            box-shadow: 0 16px 48px rgba(168, 23, 48, 0.1) !important;
+        }
+
+        .section-light .bento-card h4 {
+            color: #0e0e0e !important;
+        }
+
+        .section-light .bento-card p {
+            color: #555555 !important;
+        }
+
+        /* Glass card in light sections */
+        .section-light .glass {
+            background: #ffffff !important;
+            border-color: rgba(168, 23, 48, 0.2) !important;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1) !important;
+        }
+
+        .section-light .glass h3 {
+            color: #0e0e0e !important;
+        }
+
+        /* Accordion in light sections */
+        .section-light .accordion-item {
+            border-bottom-color: rgba(0, 0, 0, 0.08);
+        }
+
+        .section-light .accordion-trigger {
+            color: rgba(0, 0, 0, 0.25);
+        }
+
+        .section-light .accordion-trigger .num {
+            color: rgba(0, 0, 0, 0.15);
+        }
+
+        .section-light .accordion-item.active .accordion-trigger {
+            color: #0e0e0e;
+        }
+
+        .section-light .accordion-icon {
+            color: rgba(0, 0, 0, 0.2);
+        }
+
+        /* Session row dividers */
+        .section-light .session-row {
+            border-bottom-color: rgba(0, 0, 0, 0.08) !important;
+        }
+
+        .section-light .session-row span:first-child {
+            color: #888 !important;
+        }
+
+        .section-light .session-row span:last-child {
+            color: #0e0e0e !important;
+        }
+
+        /* Text-gradient override for light (use dark-to-mid gradient) */
+        .section-light .text-gradient {
+            background: linear-gradient(to right, #1a1a1a 0%, #a81730 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0px 2px 6px rgba(168, 23, 48, 0.2));
+        }
+
+        /* Comparativa-specific overrides for light */
+        .section-light .step-card {
+            background: rgba(0,0,0,0.04) !important;
+            border-color: rgba(0,0,0,0.08) !important;
+        }
+
+        .section-light .step-card:hover {
+            border-color: rgba(168, 23, 48, 0.3) !important;
+            background: rgba(168, 23, 48, 0.04) !important;
+        }
+
+        .section-light .step-card.teal:hover {
+            border-color: rgba(29, 158, 117, 0.35) !important;
+            background: rgba(29, 158, 117, 0.05) !important;
+        }
+
+        /* Step-card text labels */
+        .section-light .step-card span[style*="color: #fff"],
+        .section-light .step-card span[style*="color:#fff"],
+        .section-light .step-card span[style*="color: #ffffff"],
+        .section-light .step-card span[style*="color:#ffffff"] {
+            color: #1a1a1a !important;
+        }
+
+        /* Step connectors */
+        .section-light .step-connector {
+            background: rgba(0,0,0,0.1) !important;
+        }
+
+        .section-light .step-connector.teal {
+            background: rgba(29, 158, 117, 0.25) !important;
+        }
+
+        /* Bento card header dividers */
+        .section-light .bento-card [style*="border-bottom: 1px solid rgba(255,255,255,0.05)"],
+        .section-light .bento-card [style*="border-bottom:1px solid rgba(255,255,255,0.05)"] {
+            border-bottom-color: rgba(0,0,0,0.08) !important;
+        }
+
+        .section-light .bento-card [style*="border-top: 1px solid rgba(255,255,255,0.05)"],
+        .section-light .bento-card [style*="border-top:1px solid rgba(255,255,255,0.05)"] {
+            border-top-color: rgba(0,0,0,0.08) !important;
+        }
+
+        /* Total time label ("17 horas" and "~1 hora") */
+        .section-light .bento-card [style*="color: #fff"],
+        .section-light .bento-card [style*="color:#fff"],
+        .section-light .bento-card [style*="color: #ffffff"],
+        .section-light .bento-card [style*="color:#ffffff"],
+        .section-light .bento-card [style*="color: white"],
+        .section-light .bento-card [style*="color:white"] {
+            color: #1a1a1a !important;
+        }
+
+        /* Progress bar track background */
+        .section-light .bento-card [style*="background: rgba(255,255,255,0.02)"] {
+            background: rgba(0,0,0,0.06) !important;
+            border-color: rgba(0,0,0,0.1) !important;
+        }
+
+        /* Metric mini-cards inside comparativa */
+        .section-light .bento-card [style*="background: rgba(255, 255, 255, 0.01)"] {
+            background: rgba(0,0,0,0.03) !important;
+            border-color: rgba(0,0,0,0.07) !important;
+        }
+
+        /* Comparativa footer note divider */
+        .section-light p[style*="border-top: 1px solid rgba(255,255,255,0.05)"] {
+            border-top-color: rgba(0,0,0,0.1) !important;
+            color: #777 !important;
+        }
+
+        /* "Con IA" column border */
+        .section-light .bento-card[style*="border-color: rgba(29, 158, 117"] {
+            border-color: rgba(29, 158, 117, 0.25) !important;
+            background: rgba(29, 158, 117, 0.02) !important;
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-content">
+            <div class="logo">
+                <img src="./Links/src/logo_enae.svg" alt="ENAE Business School Logo">
+            </div>
+            <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+            </button>
+            <div class="nav-links">
+                <a href="#riesgo" class="nav-link-item">Impacto</a>
+                <a href="#programa" class="nav-link-item">Programa</a>
+                <a href="#registro" class="btn btn-primary nav-btn">Solicita Info</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <div class="hero-label">
+                    <span class="line"></span>
+                    <span class="text">PROGRAMA AVANZADO DE IA</span>
+                </div>
+                <h1>
+                    LA FÁBRICA <br>
+                    <span class="text-gradient">DE AGENTES</span>
+                </h1>
+                <p>
+                    Aprende a crear software y agentes con IA sin programar. <br>
+                    <span>Un programa intensivo de ENAE Business School.</span>
+                </p>
+                <div class="hero-buttons">
+                    <a href="#registro" class="btn btn-primary">Solicita información ahora</a>
+                    <a href="#riesgo" class="hero-link">
+                        VER IMPACTO <span>→</span>
+                    </a>
+                </div>
+            </div>
+            <div id="registro" class="hero-form glass">
+                <h3>Solicita <br><span>Información</span></h3>
+                <form id="lead-form">
+                    <div class="form-group">
+                        <label>NOMBRE COMPLETO</label>
+                        <input type="text" placeholder="Ej. Alex Rivera" required>
+                    </div>
+                    <div class="form-group">
+                        <label>EMAIL CORPORATIVO</label>
+                        <input type="email" placeholder="alex@empresa.ai" required>
+                    </div>
+                    <div class="form-group">
+                        <label>CARGO / RESPONSABILIDAD</label>
+                        <input type="text" placeholder="Director de Innovación">
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; border-radius: 0.5rem; margin-top: 1rem; padding: 0.9rem;">Unirme a la Revolución</button>
+                </form>
+                <div class="fundae-badge">
+                    <p>Programa Bonificable por</p>
+                    <img src="./Links/src/logo_fundae.svg" alt="Fundae">
+                </div>
+                <p class="plazas-limitadas">⚠ PLAZAS LIMITADAS POR CONVOCATORIA</p>
+            </div>
+        </div>
+    </header>
+
+    <section id="riesgo">
+        <div class="parallax-bg" style="background-image: url('./Links/src/Recurso 2.svg');"></div>
+        <div class="container relative-container">
+            <div class="section-header">
+                <p class="subtitle">LA REALIDAD DEL MERCADO</p>
+                <h2>El Impacto de la <br><span class="text-gradient">Automatización</span></h2>
+            </div>
+
+            <div class="bento-grid">
+                <!-- Market narrative -->
+                <div class="bento-card span-7 flex-center-y">
+                    <h3>La IA ya está transformando <span class="text-gradient">empresas y procesos</span></h3>
+                    <p class="bento-card-desc">
+                        La inteligencia artificial está automatizando operaciones complejas y sustituyendo tareas repetitivas a un ritmo sin precedentes.
+                    </p>
+                    <p class="bento-card-desc secondary">
+                        Quedarse atrás significa perder competitividad frente a empresas que ya trabajan con automatización, agentes inteligentes y herramientas de software interno personalizadas.
+                    </p>
+                </div>
+
+                <!-- Learning List -->
+                <div class="bento-card span-5 flex-center-y">
+                    <h3 class="bento-card-header">EN ESTE PROGRAMA APRENDERÁS A:</h3>
+                    <ul class="check-list">
+                        <li>Crear aplicaciones con IA sin escribir código</li>
+                        <li>Automatizar procesos de negocio clave</li>
+                        <li>Diseñar agentes inteligentes para atención y ventas</li>
+                        <li>Conectar la IA con documentos y conocimiento interno</li>
+                        <li>Implementar IA real en tus operaciones</li>
+                    </ul>
+                </div>
+
+                <!-- Timeline Chart.js -->
+                <div class="bento-card span-8 chart-card">
+                    <div class="chart-header">
+                        <h4>Puestos en riesgo de obsolescencia (2024-2035)</h4>
+                        <div class="chart-legend">
+                            <span><span class="bullet sin-ia"></span>Sin IA</span>
+                            <span><span class="bullet con-ia"></span>Con IA</span>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="lineChart" role="img" aria-label="Línea de tiempo de riesgo de obsolescencia"></canvas>
+                    </div>
+                </div>
+
+                <!-- Stats Grid (merged visually inside the bento) -->
+                <div class="bento-card span-4 stats-container">
+                    <div class="stat-mini-card">
+                        <p class="label">Empleos eliminados (2030)</p>
+                        <p class="value">92M</p>
+                    </div>
+                    <div class="stat-mini-card">
+                        <p class="label">Trabajadores deben reconvertirse</p>
+                        <p class="value">375M</p>
+                    </div>
+                    <div class="stat-mini-card">
+                        <p class="label">Habilidades obsoletas en 2030</p>
+                        <p class="value">39%</p>
+                    </div>
+                </div>
+
+                <!-- Professional Risk Chart.js -->
+                <div class="bento-card span-12 chart-card tall-chart-card">
+                    <h4>Porcentaje de riesgo de automatización por profesión (2030)</h4>
+                    <div class="chart-container tall">
+                        <canvas id="barChart" role="img" aria-label="Riesgo de automatización por profesión"></canvas>
+                    </div>
+                    <p class="chart-footer-note">Fuentes: WEF Future of Jobs Report 2025 · McKinsey Global Institute · PwC Global Workforce. Estimaciones promediadas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="comparativa" class="section-light">
+        <div class="parallax-bg" style="background-image: url('./Links/src/Recurso 2.svg');"></div>
+        <div class="container relative-container">
+            <!-- Header de la sección -->
+            <div class="section-header">
+                <p class="subtitle">EFICIENCIA OPERATIVA · CASO REAL</p>
+                <h2>Flujo de trabajo <br><span class="text-gradient">Con IA vs Sin IA</span></h2>
+            </div>
+
+            <!-- Bento Grid de Comparativa de Columnas -->
+            <div class="bento-grid comparative-grid">
+                <!-- Columna: Sin IA -->
+                <div class="bento-card span-6 comparative-column column-manual">
+                    <div>
+                        <div class="column-header">
+                           <span class="dot"></span>
+                           <span class="label">PROCESO MANUAL (SIN IA)</span>
+                        </div>
+                        <div class="steps-container">
+                            <div class="step-card">
+                                <span>1. Recopilación de información</span>
+                                <span class="time-label">4 h</span>
+                            </div>
+                            <div class="step-connector"></div>
+                            <div class="step-card">
+                                <span>2. Limpieza de bases de datos</span>
+                                <span class="time-label">3 h</span>
+                            </div>
+                            <div class="step-connector"></div>
+                            <div class="step-card">
+                                <span>3. Análisis estadístico y lógica</span>
+                                <span class="time-label">5 h</span>
+                            </div>
+                            <div class="step-connector"></div>
+                            <div class="step-card">
+                                <span>4. Redacción de informe inicial</span>
+                                <span class="time-label">3 h</span>
+                            </div>
+                            <div class="step-connector"></div>
+                            <div class="step-card">
+                                <span>5. Revisión final y ajustes</span>
+                                <span class="time-label">2 h</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="column-footer">
+                        <p class="label">Tiempo Total Manual</p>
+                        <p class="time">17 <span>horas</span></p>
+                        <p class="desc">Lento · Repetitivo · Propenso a errores humanos</p>
+                    </div>
+                </div>
+
+                <!-- Columna: Con IA -->
+                <div class="bento-card span-6 comparative-column column-ia">
+                    <div>
+                        <div class="column-header">
+                            <span class="dot teal"></span>
+                            <span class="label teal">PROCESO OPTIMIZADO (CON IA)</span>
+                        </div>
+                        <div class="steps-container">
+                            <div class="step-card teal">
+                                <span class="bold-text">1. Recopilación automatizada (n8n/Make)</span>
+                                <span class="time-label teal">15 min</span>
+                            </div>
+                            <div class="step-connector teal"></div>
+                            <div class="step-card teal">
+                                <span class="bold-text">2. Limpieza con prompts cognitivos</span>
+                                <span class="time-label teal">5 min</span>
+                            </div>
+                            <div class="step-connector teal"></div>
+                            <div class="step-card teal">
+                                <span class="bold-text">3. Análisis inteligente estructurado</span>
+                                <span class="time-label teal">20 min</span>
+                            </div>
+                            <div class="step-connector teal"></div>
+                            <div class="step-card teal">
+                                <span class="bold-text">4. Generación de informes (Antigravity)</span>
+                                <span class="time-label teal">10 min</span>
+                            </div>
+                            <div class="step-connector teal"></div>
+                            <div class="step-card teal">
+                                <span class="bold-text">5. Supervisión humana y aprobación</span>
+                                <span class="time-label teal">10 min</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="column-footer teal">
+                        <p class="label teal">Tiempo Total Aumentado</p>
+                        <p class="time teal">~1 <span class="teal">hora</span></p>
+                        <p class="desc teal">Súper rápido · Escalable · Precisión total</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bento Grid de Progreso y Métricas Clave -->
+            <div class="bento-grid">
+                <!-- Comparativa de Barras -->
+                <div class="bento-card span-6 progress-card">
+                    <p class="progress-title">TIEMPO TOTAL REQUERIDO POR PROCESO</p>
+                    
+                    <div class="progress-item">
+                        <div class="progress-label-row">
+                            <span>Sin IA (Manual)</span>
+                            <span class="value">17 h</span>
+                        </div>
+                        <div class="progress-track">
+                            <div class="bar-fill red-bar" style="width: 100%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="progress-item">
+                        <div class="progress-label-row bold-label">
+                            <span>Con IA (Aumentado)</span>
+                            <span class="value teal-value">~1 h</span>
+                        </div>
+                        <div class="progress-track">
+                            <div class="bar-fill teal-bar" style="width: 5.9%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grid de Métricas de Impacto -->
+                <div class="bento-card span-6 metrics-grid">
+                    <div class="metric-mini-card">
+                        <p class="val">94%</p>
+                        <p class="desc">Ahorro de<br>Tiempo</p>
+                    </div>
+                    <div class="metric-mini-card">
+                        <p class="val">↓80%</p>
+                        <p class="desc">Errores<br>Humanos</p>
+                    </div>
+                    <div class="metric-mini-card">
+                        <p class="val">∞</p>
+                        <p class="desc">Escalabilidad<br>Total</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer de estimación -->
+            <p class="estimation-footer">
+                * Estimaciones         </div>
+    </section>
+
+    <section id="programa">
+        <div class="parallax-bg" style="background-image: url('./Links/src/Recurso 3.svg');"></div>
+        <div class="radial-glow-program"></div>
+        <div class="container relative-container">
+            <div class="section-header">
+                <p class="subtitle">¿QUÉ APRENDERÁS?</p>
+                <h2>Contenido del <br><span class="text-gradient">Programa</span></h2>
+            </div>
+            
+            <div class="accordion">
+                <!-- Item 1 -->
+                <div class="accordion-item active" data-index="0">
+                    <div class="accordion-header">
+                        <h3 class="accordion-trigger"><span class="num">3.1 //</span> Software con IA — Google Antigravity</h3>
+                        <span class="accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <div class="accordion-left">
+                                <p class="desc">
+                                    Aprende a crear herramientas, aplicaciones y tableros interactivos mediante instrucciones lógicas dadas a una inteligencia artificial.
+                                </p>
+                                <p class="desc secondary">
+                                    Olvídate del código tradicional y crea de forma ágil soluciones internas seguras y escalables para tu equipo o clientes, todo de forma totalmente visual y sin programar.
+                                </p>
+                            </div>
+                            <div class="accordion-right">
+                                <h4>PROYECTOS QUE CONSTRUIRÁS:</h4>
+                                <ul class="program-list">
+                                    <li>Microapps de consumo interno para tu empresa</li>
+                                    <li>Dashboards y analíticas de datos en tiempo real</li>
+                                    <li>Landing pages completas optimizadas para captación</li>
+                                    <li>Herramientas internas para optimización de flujos de trabajo</li>
+                                    <li>Automatizaciones de procesos repetitivos automatizados</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="accordion-item" data-index="1">
+                    <div class="accordion-header">
+                        <h3 class="accordion-trigger"><span class="num">3.2 //</span> Agentes de Marketing — Copilot Studio</h3>
+                        <span class="accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <div class="accordion-left">
+                                <p class="desc">
+                                    Diseña y entrena asistentes virtuales inteligentes capaces de operar en canales de mensajería las 24 horas del día.
+                                </p>
+                                <p class="desc secondary">
+                                    Conecta la IA con tus bases de datos corporativas para calificar leads, automatizar respuestas complejas y cerrar ventas de forma segura y controlada.
+                                </p>
+                            </div>
+                            <div class="accordion-right">
+                                <h4>HABILIDADES CLAVE:</h4>
+                                <ul class="program-list">
+                                    <li>Crear chatbots conversacionales para web y WhatsApp</li>
+                                    <li>Diseñar flujos de captación y cualificación de leads automáticos</li>
+                                    <li>Automatizar la atención de solicitudes de clientes frecuentes</li>
+                                    <li>Conectar con total seguridad tus documentos corporativos</li>
+                                    <li>Configurar filtros de moderación y respuestas seguras</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="accordion-item" data-index="2">
+                    <div class="accordion-header">
+                        <h3 class="accordion-trigger"><span class="num">3.3 //</span> Cerebros Visuales — Flowise</h3>
+                        <span class="accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <div class="accordion-left">
+                                <p class="desc">
+                                    Construye arquitecturas avanzadas de inteligencia artificial conectando bloques de lógica visuales mediante sistemas Drag & Drop.
+                                </p>
+                                <p class="desc secondary">
+                                    Une modelos de lenguaje, bases vectoriales y herramientas de terceros para crear sistemas RAG con memoria persistente y procesos lógicos automatizados.
+                                </p>
+                            </div>
+                            <div class="accordion-right">
+                                <h4>APLICACIONES QUE DESARROLLARÁS:</h4>
+                                <ul class="program-list">
+                                    <li>Flujos avanzados Drag & Drop mediante nodos lógicos</li>
+                                    <li>Asistentes virtuales con gestión de memoria avanzada</li>
+                                    <li>Sistemas RAG conectados a tus documentos de negocio</li>
+                                    <li>Bases de conocimiento dinámicas e hiper-personalizadas</li>
+                                    <li>Agentes inteligentes integrados con APIs de terceros</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="herramientas" class="section-light">
+        <div class="container relative-container">
+            <div class="section-header center-header">
+                <p class="subtitle">ECOSISTEMA TECNOLÓGICO</p>
+                <h2>Herramientas que <span class="text-gradient">dominarás</span></h2>
+                <p class="subtitle-desc">
+                    Aprende a orquestar el stack de herramientas líderes en automatización y desarrollo con IA sin escribir código.
+                </p>
+            </div>
+            
+            <div class="bento-grid tools-grid">
+                <!-- Tool 1 -->
+                <div class="bento-card span-4 tool-card">
+                    <img src="./Links/Google_Antigravity_Logo.png" alt="Google Antigravity Logo" class="tool-logo">
+                    <h3>Google Antigravity</h3>
+                    <p>Plataforma avanzada de creación y despliegue de software y microapps internas guiada por instrucciones en lenguaje natural.</p>
+                </div>
+
+                <!-- Tool 2 -->
+                <div class="bento-card span-4 tool-card">
+                    <img src="./Links/microsoft-copilot-logo.svg" alt="Microsoft Copilot Logo" class="tool-logo">
+                    <h3>Copilot Studio</h3>
+                    <p>Entorno empresarial de Microsoft para estructurar agentes de marketing autónomos, integrables en WhatsApp y webs corporativas.</p>
+                </div>
+
+                <!-- Tool 3 -->
+                <div class="bento-card span-4 tool-card">
+                    <img src="./Links/logo-flowise.png" alt="Flowise Logo" class="tool-logo">
+                    <h3>Flowise AI</h3>
+                    <p>Orquestador visual Drag & Drop para conectar LLMs con bases vectoriales, APIs y construir flujos cognitivos de memoria semántica.</p>
+                </div>
+
+                <!-- Tool 4 -->
+                <div class="bento-card span-4 tool-card">
+                    <div class="tool-logo-row">
+                        <img src="./Links/vertical-align.png" alt="n8n Logo" class="logo-n8n">
+                        <span class="separator">/</span>
+                        <img src="./Links/logo_make.svg" alt="Make Logo" class="logo-make">
+                    </div>
+                    <h3>n8n / Make</h3>
+                    <p>Motores de automatización y orquestación para interconectar aplicaciones, sincronizar bases de datos y desencadenar agentes.</p>
+                </div>
+
+                <!-- Tool 5 -->
+                <div class="bento-card span-4 tool-card">
+                    <div class="tool-emoji">🧠</div>
+                    <h3>LLMs de Vanguardia</h3>
+                    <p>Integración profunda con los modelos más avanzados de la industria (GPT-4o, Claude 3.5 Sonnet, Llama 3) como motores cognitivos.</p>
+                </div>
+
+                <!-- Tool 6 -->
+                <div class="bento-card span-4 tool-card">
+                    <div class="tool-emoji">📁</div>
+                    <h3>Bases Vectoriales</h3>
+                    <p>Uso de Pinecone y ChromaDB para almacenar índices de documentos y proveer memoria a largo plazo a tus agentes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="audiencia">
+        <div class="parallax-bg" style="background-image: url('./Links/src/Recurso 4.svg');"></div>
+        <div class="container relative-container">
+            <div class="section-header center-header">
+                <p class="subtitle">¿ES ESTO PARA TI?</p>
+                <h2>Este curso es <span class="text-gradient">para ti si…</span></h2>
+            </div>
+            <div class="bento-grid audiencia-grid">
+                <div class="bento-card audience-card">
+                    <div class="check-icon">✔</div>
+                    <div class="content">
+                        <h4>Resultados reales</h4>
+                        <p>Quieres aplicar IA de verdad en tu empresa para automatizar operaciones de forma práctica.</p>
+                    </div>
+                </div>
+                <div class="bento-card audience-card">
+                    <div class="check-icon">✔</div>
+                    <div class="content">
+                        <h4>Ahorro de recursos</h4>
+                        <p>Buscas automatizar tareas, eliminar procesos manuales lentos y optimizar el tiempo de tu equipo.</p>
+                    </div>
+                </div>
+                <div class="bento-card audience-card">
+                    <div class="check-icon">✔</div>
+                    <div class="content">
+                        <h4>Autonomía tecnológica</h4>
+                        <p>Quieres crear soluciones propias, webs y flujos inteligentes sin depender de programadores externos.</p>
+                    </div>
+                </div>
+                <div class="bento-card audience-card">
+                    <div class="check-icon">✔</div>
+                    <div class="content">
+                        <h4>Liderazgo e Innovación</h4>
+                        <p>Necesitas adaptarte de inmediato al nuevo entorno digital y liderar la transformación en tu sector.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="agenda" class="section-light">
+        <div class="container relative-container">
+
+            <!-- Header -->
+            <div class="section-header center-header">
+                <p class="subtitle">CONVOCATORIA</p>
+                <h2>Julio <span class="text-gradient">2026</span></h2>
+                <p class="subtitle-desc">Cuatro sesiones intensivas. Haz clic en los días marcados para ver qué aprenderás.</p>
+            </div>
+
+            <!-- Calendar + Detail layout -->
+            <div class="agenda-layout-grid">
+
+                <!-- Calendar -->
+                <div class="cal-wrap">
+                    <!-- Weekday headers -->
+                    <div class="cal-grid cal-header">
+                        <div>Lun</div><div>Mar</div><div>Mié</div><div>Jue</div>
+                        <div>Vie</div><div>Sáb</div><div>Dom</div>
+                    </div>
+                    <!-- Days: July 2026 starts on Wednesday (index 2) -->
+                    <div class="cal-grid cal-body">
+                        <!-- Blanks: Mon, Tue -->
+                        <div class="cal-day empty"></div>
+                        <div class="cal-day empty"></div>
+                        <!-- 1–31 -->
+                        <div class="cal-day">1</div>
+                        <div class="cal-day">2</div>
+                        <div class="cal-day">3</div>
+                        <div class="cal-day">4</div>
+                        <div class="cal-day">5</div>
+                        <div class="cal-day">6</div>
+                        <div class="cal-day">7</div>
+                        <div class="cal-day">8</div>
+                        <div class="cal-day">9</div>
+                        <div class="cal-day">10</div>
+                        <div class="cal-day">11</div>
+                        <div class="cal-day">12</div>
+                        <div class="cal-day">13</div>
+                        <div class="cal-day">14</div>
+                        <div class="cal-day cal-session" data-session="1" tabindex="0" role="button" aria-label="Sesión 1 – 15 de julio">15</div>
+                        <div class="cal-day cal-session" data-session="2" tabindex="0" role="button" aria-label="Sesión 2 – 16 de julio">16</div>
+                        <div class="cal-day">17</div>
+                        <div class="cal-day">18</div>
+                        <div class="cal-day">19</div>
+                        <div class="cal-day">20</div>
+                        <div class="cal-day">21</div>
+                        <div class="cal-day cal-session" data-session="3" tabindex="0" role="button" aria-label="Sesión 3 – 22 de julio">22</div>
+                        <div class="cal-day cal-session" data-session="4" tabindex="0" role="button" aria-label="Sesión 4 – 23 de julio">23</div>
+                        <div class="cal-day">24</div>
+                        <div class="cal-day">25</div>
+                        <div class="cal-day">26</div>
+                        <div class="cal-day">27</div>
+                        <div class="cal-day">28</div>
+                        <div class="cal-day">29</div>
+                        <div class="cal-day">30</div>
+                        <div class="cal-day">31</div>
+                        <!-- Trailing blank to fill last row -->
+                        <div class="cal-day empty"></div>
+                        <div class="cal-day empty"></div>
+                    </div>
+                    <!-- Legend -->
+                    <div class="cal-legend">
+                        <div class="legend-item">
+                            <span class="color-box scheduled"></span>
+                            Sesión programada
+                        </div>
+                        <div class="legend-item">
+                            <span class="color-box free"></span>
+                            Día libre
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Session Detail Panel -->
+                <div class="cal-detail-wrap">
+                    <!-- Default empty state -->
+                    <div class="cal-detail-empty" id="cal-empty">
+                        <div class="empty-emoji">📅</div>
+                        <p class="empty-text">Haz clic en un día<br>marcado para ver<br>el contenido</p>
+                    </div>
+
+                    <!-- Session 1 -->
+                    <div class="cal-detail" id="cal-detail-1" hidden>
+                        <div class="cal-detail-tag">SESIÓN 01 · 15 JULIO</div>
+                        <h3 class="cal-detail-title">Software con IA — Google Antigravity</h3>
+                        <p class="cal-detail-desc">Aprende a crear aplicaciones, microapps y herramientas internas con instrucciones en lenguaje natural, sin escribir una sola línea de código tradicional.</p>
+                        <ul class="cal-detail-list">
+                            <li>Fundamentos de creación de software con IA</li>
+                            <li>Microapps de consumo interno para tu empresa</li>
+                            <li>Dashboards y analíticas de datos en tiempo real</li>
+                            <li>Landing pages completas optimizadas para captación</li>
+                            <li>Herramientas internas para optimización de flujos de trabajo</li>
+                        </ul>
+                    </div>
+
+                    <!-- Session 2 -->
+                    <div class="cal-detail" id="cal-detail-2" hidden>
+                        <div class="cal-detail-tag">SESIÓN 02 · 16 JULIO</div>
+                        <h3 class="cal-detail-title">Agentes de Marketing — Copilot Studio</h3>
+                        <p class="cal-detail-desc">Diseña y despliega agentes de marketing autónomos con Microsoft Copilot Studio. Conecta WhatsApp, webs corporativas y flujos de captación de leads sin fricción.</p>
+                        <ul class="cal-detail-list">
+                            <li>Arquitectura de agentes conversacionales</li>
+                            <li>Integración nativa con Microsoft 365</li>
+                            <li>Agentes para atención al cliente y ventas</li>
+                            <li>Configuración de flujos de respuesta inteligente</li>
+                            <li>Publicación en canales: WhatsApp, web, Teams</li>
+                        </ul>
+                    </div>
+
+                    <!-- Session 3 -->
+                    <div class="cal-detail" id="cal-detail-3" hidden>
+                        <div class="cal-detail-tag">SESIÓN 03 · 22 JULIO</div>
+                        <h3 class="cal-detail-title">Cerebros Visuales — Flowise AI</h3>
+                        <p class="cal-detail-desc">Orquesta modelos de lenguaje avanzados mediante flujos visuales Drag & Drop. Construye sistemas con memoria semántica, bases vectoriales y acceso a conocimiento corporativo.</p>
+                        <ul class="cal-detail-list">
+                            <li>Flujos avanzados mediante nodos lógicos</li>
+                            <li>Asistentes virtuales con memoria a largo plazo</li>
+                            <li>Sistemas RAG conectados a documentos de negocio</li>
+                            <li>Bases de conocimiento dinámicas e hiper-personalizadas</li>
+                            <li>Agentes inteligentes integrados con APIs de terceros</li>
+                        </ul>
+                    </div>
+
+                    <!-- Session 4 -->
+                    <div class="cal-detail" id="cal-detail-4" hidden>
+                        <div class="cal-detail-tag">SESIÓN 04 · 23 JULIO</div>
+                        <h3 class="cal-detail-title">Automatización Total — n8n / Make</h3>
+                        <p class="cal-detail-desc">Despliega flujos de automatización que interconectan todas tus herramientas y agentes. Elimina tareas repetitivas y libera horas de trabajo de alta cualificación.</p>
+                        <ul class="cal-detail-list">
+                            <li>Diseño de flujos de automatización end-to-end</li>
+                            <li>Sincronización de CRM, email y calendarios</li>
+                            <li>Triggers inteligentes basados en eventos</li>
+                            <li>Integración con n8n, Make y Zapier</li>
+                            <li>Proyecto final: automatización real de tu empresa</li>
+                        </ul>
+                        <a href="#registro" class="btn btn-primary cal-detail-btn">Reservar mi plaza →</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <img src="./Links/src/logo_enae.svg" alt="ENAE Business School" class="footer-logo">
+            
+            <div class="footer-social">
+                <a href="https://www.instagram.com/enaebusiness/#" target="_blank" aria-label="Instagram">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                </a>
+                <a href="https://x.com/ENAEbusiness?s=09" target="_blank" aria-label="Twitter / X">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                </a>
+                <a href="https://www.linkedin.com/school/enae-business-school/" target="_blank" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                </a>
+                <a href="https://www.youtube.com/enaebusiness" target="_blank" aria-label="YouTube">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+                </a>
+                <a href="https://www.facebook.com/enaebusiness" target="_blank" aria-label="Facebook">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                </a>
+            </div>
+
+            <div class="footer-links">
+                <a href="https://www.enae.es/condiciones-legales" target="_blank">Aviso legal</a> |
+                <a href="https://www.enae.es/politica-cookies" target="_blank">Política de cookies</a> |
+                <a href="https://www.enae.es/politica-de-privacidad" target="_blank">Política de privacidad</a>
+            </div>
+
+            <p class="footer-copyright">© 2026 ENAE Business School. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+    <script src="main.js?v=2"></script>
+    <script>
+        // ── Calendar interactivity ─────────────────────────────────────────
+        (function () {
+            const sessionDays = document.querySelectorAll('.cal-session');
+            const empty = document.getElementById('cal-empty');
+            let activeSession = null;
+
+            function showDetail(sessionId, clickedEl) {
+                // Hide all panels
+                document.querySelectorAll('.cal-detail').forEach(el => el.hidden = true);
+                // Remove active from all days
+                sessionDays.forEach(d => d.classList.remove('active'));
+
+                if (activeSession === sessionId) {
+                    // Toggle off
+                    empty.style.display = 'flex';
+                    activeSession = null;
+                    return;
+                }
+
+                // Show selected
+                const panel = document.getElementById('cal-detail-' + sessionId);
+                if (panel) {
+                    empty.style.display = 'none';
+                    panel.hidden = false;
+                    // Re-trigger animation
+                    panel.style.animation = 'none';
+                    panel.offsetHeight; // reflow
+                    panel.style.animation = '';
+                    clickedEl.classList.add('active');
+                    activeSession = sessionId;
+                }
+            }
+
+            sessionDays.forEach(function (day) {
+                day.addEventListener('click', function () {
+                    showDetail(this.dataset.session, this);
+                });
+                day.addEventListener('keydown', function (e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        showDetail(this.dataset.session, this);
+                    }
+                });
+            });
+        })();
+    </script>
+</body>
+</html>

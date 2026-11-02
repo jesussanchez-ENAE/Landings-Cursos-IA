@@ -1,0 +1,1405 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursos en Visión IA | ENAE Business School</title>
+    <meta name="description" content="Aprende a implementar la IA en tu negocio para agilizar procesos. 3 niveles formativos: Visión IA Esencial, Avanzado y PRO. Formación bonificable por Fundae en ENAE Business School.">
+    <link rel="stylesheet" href="fonts.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* Specific page adaptations */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(to right, rgba(8, 8, 8, 0.94) 20%, rgba(8, 8, 8, 0.72) 65%, rgba(8, 8, 8, 0.5)), url('./Links/hero_dossier_cover.jpg');
+            background-size: cover;
+            background-position: center right;
+            padding-top: 8rem;
+            padding-bottom: 6rem;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-form {
+            flex: 0 0 420px;
+            padding: 2.2rem 2.4rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.35rem;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--secondary-accent);
+            letter-spacing: 0.05em;
+            font-weight: 700;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            background: var(--input-bg);
+            border: 1px solid var(--border-color);
+            color: #ffffff;
+            border-radius: 0.5rem;
+            font-family: var(--font-body);
+            font-size: 0.92rem;
+            transition: var(--transition);
+        }
+
+        .form-group select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23a81730' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+        }
+
+        .form-group select option {
+            background: #151515;
+            color: #fff;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 15px rgba(168, 23, 48, 0.3);
+        }
+
+        /* Course level cards in light theme */
+        .section-light .portfolio-course-card {
+            background: #ffffff;
+            color: #111111;
+        }
+
+        .section-light .portfolio-course-card h3 {
+            color: #0e0e0e !important;
+            margin-bottom: 0.4rem;
+        }
+
+        /* Pathway connector in dark section */
+        .pathway-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 1rem;
+            padding: 1.8rem;
+            transition: var(--transition);
+        }
+
+        .pathway-step:hover {
+            border-color: rgba(168, 23, 48, 0.4);
+            transform: translateY(-4px);
+            background: rgba(168, 23, 48, 0.03);
+        }
+
+        .pathway-num {
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
+            font-weight: 900;
+            line-height: 1;
+            color: var(--accent-color);
+            opacity: 0.9;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Floating Pill Navigation (Principio 1: Jerarquía y Navegación Familiar) -->
+    <nav class="nav" aria-label="Navegación principal">
+        <div class="nav-content">
+            <div class="logo">
+                <a href="#" aria-label="ENAE Business School Inicio">
+                    <img src="./Links/src/logo_enae.svg" alt="ENAE Business School Logo">
+                </a>
+            </div>
+            <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-links">
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+            </button>
+            <div class="nav-links" id="menu-links">
+                <a href="#contexto">Contexto</a>
+                <a href="#cursos">Cursos</a>
+                <a href="#itinerario">Itinerario</a>
+                <a href="#calendario">Calendario</a>
+                <a href="#profesores">Docentes</a>
+                <a href="#inversion">Inversión</a>
+                <a href="#registro" class="btn btn-primary" style="padding: 0.65rem 1.6rem; font-size: 0.78rem;">Inscríbete</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section (Principio 1: Jerarquía, Principio 4: Contraste, Principio 6: Proximidad) -->
+    <header class="hero">
+        <div class="container hero-container" style="display: flex; gap: 4rem; align-items: center;">
+            <div class="hero-content">
+                
+                <!-- Badge Granate solicitado por el usuario -->
+                <div style="display: inline-block; margin-bottom: 2rem; background: var(--accent-color); padding: 0.45rem 1rem; border-radius: 4px; box-shadow: 0 4px 15px rgba(168, 23, 48, 0.35);">
+                    <span style="font-family: var(--font-mono); font-size: 0.75rem; color: #ffffff; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700;">
+                        CURSOS EN VISIÓN IA · 2026–2027
+                    </span>
+                </div>
+
+                <h1 style="font-size: clamp(2.6rem, 5.5vw, 3.9rem); line-height: 0.98; margin-bottom: 1.8rem; font-weight: 900; text-transform: uppercase;">
+                    APRENDE A IMPLEMENTAR LA IA <br>
+                    <span class="text-gradient">EN TU NEGOCIO PARA AGILIZAR PROCESOS</span>
+                </h1>
+                
+                <p style="font-size: 1.15rem; margin-bottom: 2.2rem; color: #d4d4d4; max-width: 580px; line-height: 1.75;">
+                    Tres niveles formativos adaptados a cada perfil: <strong style="color: #fff;">Visión IA Esencial</strong>, <strong style="color: #fff;">Visión IA Avanzado</strong> y <strong style="color: #fff;">Visión IA PRO</strong>.
+                    Formación intensiva, práctica y 100% aplicable con casos de uso reales de empresa.
+                </p>
+
+                <!-- Key Value Badges (Principio 6: Proximidad) -->
+                <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin-bottom: 2.8rem;">
+                    <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.14); border-radius: 100px; padding: 0.45rem 1.1rem; font-family: var(--font-mono); font-size: 0.78rem; color: #eee; display: flex; align-items: center; gap: 0.5rem;">
+                        <i class="fa-regular fa-clock" style="color: var(--secondary-accent);" aria-hidden="true"></i> 20 Horas por Curso
+                    </div>
+                    <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.14); border-radius: 100px; padding: 0.45rem 1.1rem; font-family: var(--font-mono); font-size: 0.78rem; color: #eee; display: flex; align-items: center; gap: 0.5rem;">
+                        <i class="fa-solid fa-laptop-code" style="color: var(--secondary-accent);" aria-hidden="true"></i> Online y Presencial
+                    </div>
+                    <div style="background: rgba(212,166,0,0.12); border: 1px solid rgba(212,166,0,0.35); border-radius: 100px; padding: 0.45rem 1.1rem; font-family: var(--font-mono); font-size: 0.78rem; color: #ffd84d; display: flex; align-items: center; gap: 0.5rem;">
+                        <i class="fa-solid fa-euro-sign" aria-hidden="true"></i> Bonificable Fundae (hasta 260 €)
+                    </div>
+                </div>
+
+                <div class="hero-buttons" style="display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap;">
+                    <a href="#cursos" class="btn btn-primary">Ver Cursos y Horarios</a>
+                    <a href="#calendario" class="btn btn-secondary" style="padding: 1.1rem 2rem;">
+                        Calendario 2026–27 <span style="margin-left: 0.5rem; color: var(--secondary-accent);">→</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Registration Card with Progressive Disclosure (Principio 2: Divulgación Progresiva) -->
+            <div id="registro" class="hero-form glass" style="border: 1px solid rgba(168,23,48,0.25); box-shadow: 0 40px 100px rgba(0,0,0,0.8); border-radius: 1.25rem;">
+                <div style="margin-bottom: 1.2rem;">
+                    <span style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--secondary-accent); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700;">
+                        CONVOCATORIAS 2026–2027
+                    </span>
+                    <h2 style="margin: 0.3rem 0; text-align: left; font-size: 1.65rem; line-height: 1.1;">
+                        Solicita Plaza o <br><span style="color: var(--accent-color);">Asesoramiento</span>
+                    </h2>
+                    <p style="font-size: 0.85rem; color: #a3a3a3; margin: 0;">
+                        Elige tu curso y asegura tu plaza o consulta tu crédito Fundae.
+                    </p>
+                </div>
+
+                <form id="lead-form">
+                    <!-- Step 1: Fundamental fields -->
+                    <div class="form-group">
+                        <label for="course-select">CURSO DE INTERÉS *</label>
+                        <select id="course-select" required aria-required="true">
+                            <option value="" disabled selected>Selecciona un nivel...</option>
+                            <option value="esencial">Visión IA Esencial (05 – 24 Nov 2026)</option>
+                            <option value="avanzado">Visión IA Avanzado (10 – 26 Nov 2026 + 2027)</option>
+                            <option value="pro">Visión IA PRO (09 – 25 Nov 2026 + 2027)</option>
+                            <option value="itinerario">Itinerario Completo (Pack 3 Cursos)</option>
+                            <option value="eventos">Eventos en Abierto Dic 2026 (Webinar / Seminario)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="user-name">NOMBRE COMPLETO *</label>
+                        <input type="text" id="user-name" placeholder="Ej. Carlos Mendoza" required aria-required="true">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="user-email">EMAIL PROFESIONAL *</label>
+                        <input type="email" id="user-email" placeholder="carlos@empresa.es" required aria-required="true">
+                    </div>
+
+                    <!-- Step 2: Progressive Disclosure Trigger -->
+                    <button type="button" class="disclosure-toggle" data-target="hero-optional-fields" aria-expanded="false" style="margin-bottom: 0.8rem; font-size: 0.72rem;">
+                        + Añadir teléfono y datos de empresa (Opcional) <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                    </button>
+
+                    <!-- Disclosed container -->
+                    <div class="disclosure-content" id="hero-optional-fields">
+                        <div class="form-group">
+                            <label for="user-phone">TELÉFONO DE CONTACTO</label>
+                            <input type="tel" id="user-phone" placeholder="+34 600 000 000">
+                        </div>
+                        <div class="form-group">
+                            <label for="user-mode">MODALIDAD PREFERIDA</label>
+                            <select id="user-mode">
+                                <option value="online">Online en directo (Streaming interactivo)</option>
+                                <option value="presencial">Presencial en Campus ENAE Murcia</option>
+                                <option value="ambas">Formato Híbrido / Indiferente</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; align-items: flex-start; gap: 0.6rem; margin-bottom: 1.2rem;">
+                        <input type="checkbox" id="fundae-check" style="margin-top: 0.25rem; accent-color: var(--accent-color); width: 16px; height: 16px;">
+                        <label for="fundae-check" style="font-size: 0.75rem; color: #bbb; margin: 0; line-height: 1.4; font-weight: normal;">
+                            Deseo tramitar la bonificación por <strong>Fundae</strong> (o descuento autónomo)
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%; border-radius: 0.5rem; padding: 0.95rem; font-size: 0.85rem;">
+                        SOLICITAR INFORMACIÓN Y PLAZA →
+                    </button>
+                </form>
+
+                <!-- Fundae Micro-card -->
+                <div style="margin-top: 1.2rem; padding: 0.85rem 1.1rem; border-radius: 0.75rem; background: linear-gradient(135deg, rgba(212,166,0,0.1), rgba(212,166,0,0.02)); border: 1px solid rgba(212,166,0,0.25); display: flex; align-items: center; justify-content: space-between; gap: 1rem;">
+                    <div>
+                        <div style="font-family: var(--font-mono); font-size: 0.65rem; color: #ffd84d; text-transform: uppercase; font-weight: 700;">Bonificable por</div>
+                        <div style="font-size: 0.75rem; color: #ddd;">Hasta 260 € de bonificación</div>
+                    </div>
+                    <img src="./Links/src/logo_fundae.svg" alt="Logo Fundae" style="height: 22px; filter: brightness(2) sepia(1) hue-rotate(5deg) saturate(2);">
+                </div>
+                <p style="font-size: 0.68rem; color: #ffd84d; margin-top: 0.8rem; text-align: center; font-family: var(--font-mono); font-weight: 700; letter-spacing: 0.05em;">
+                    ⚠ PLAZAS LIMITADAS POR RIGUROSO ORDEN DE INSCRIPCIÓN
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <!-- SECTION 1: CONTEXTO / POR QUÉ AHORA (Dark Mode - Principio 1: Jerarquía de Datos) -->
+    <section id="contexto" style="background: linear-gradient(to bottom, #000000, #050505); padding: 8rem 0;">
+        <div class="parallax-bg" style="background-image: url('./Links/src/Recurso 2.svg');"></div>
+        <div class="container" style="position: relative; z-index: 2;">
+            <div style="margin-bottom: 4.5rem; text-align: left;">
+                <p style="font-family: var(--font-mono); color: var(--accent-color); font-size: 0.8rem; letter-spacing: 0.2em; margin-bottom: 1rem; text-transform: uppercase;">
+                    01 — CONTEXTO & REVOLUCIÓN OPERATIVA
+                </p>
+                <h2 style="font-size: clamp(2.2rem, 4vw, 3.2rem); line-height: 1.1; text-transform: uppercase;">
+                    APRENDE A IMPLEMENTAR <br><span class="text-gradient">LA IA EN TU DÍA A DÍA</span>
+                </h2>
+                <p style="color: #a3a3a3; font-size: 1.1rem; max-width: 650px; line-height: 1.7;">
+                    La inteligencia artificial ya no es una promesa futura: es la palanca que divide a las empresas y profesionales que escalan con agilidad de los que quedan obsoletos.
+                </p>
+            </div>
+
+            <!-- Bento Statistics Grid (Principio 7: Coordinación y Grid) -->
+            <div class="bento-grid">
+                <!-- Card 1: 88% -->
+                <div class="bento-card card-light span-4">
+                    <span class="tag">Adopción empresarial</span>
+                    <div>
+                        <div class="big-num">88<span class="suffix">%</span></div>
+                        <div class="label-main">de los ejecutivos reporta</div>
+                        <div class="label-sub">uso de IA en al menos una función de su empresa desde 2025.</div>
+                        <div class="card-source">Fuente: McKinsey Global Survey</div>
+                    </div>
+                </div>
+
+                <!-- Card 2: +30% Salario -->
+                <div class="bento-card card-dark span-4">
+                    <span class="tag">Impacto profesional</span>
+                    <div>
+                        <div class="big-num" style="font-size: 64px;">+30<span class="suffix" style="font-size: 26px;">%</span></div>
+                        <div class="label-main" style="color: var(--secondary-accent) !important;">más salario</div>
+                        <div class="label-sub" style="color: #aaa;">para quien tiene skills de IA frente a colegas sin ellas.</div>
+                        <div class="card-source">Fuente: LinkedIn / Foro Económico Mundial</div>
+                    </div>
+                </div>
+
+                <!-- Card 3: x2 Validaciones -->
+                <div class="bento-card card-brand span-4">
+                    <span class="tag">Demanda de talento</span>
+                    <div>
+                        <div class="big-num" style="font-size: 60px;"><span class="suffix" style="font-size: 32px;">×</span>2</div>
+                        <div class="label-main">validaciones de skills IA</div>
+                        <div class="label-sub" style="color: rgba(255,255,255,.9);">en LinkedIn desde 2016. La demanda supera drásticamente la oferta.</div>
+                        <div class="card-source">Fuente: LinkedIn Talent Insights</div>
+                    </div>
+                </div>
+
+                <!-- Card 4: 78M Empleos & Mercado 312B (Span 8) -->
+                <div class="bento-card card-dark span-8">
+                    <span class="tag">Horizonte 2026 – 2030</span>
+                    <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 2rem; flex-wrap: wrap;">
+                        <div>
+                            <div class="big-num" style="font-size: 76px;">78<span class="suffix" style="font-size: 30px; color: var(--secondary-accent) !important;">M</span></div>
+                            <div class="label-main" style="font-size: 1.05rem;">nuevos empleos generados por IA</div>
+                            <div class="label-sub" style="color: #aaa; margin-top: 4px;">según el Foro Económico Mundial: ganancia neta concentrada en profesionales de alta cualificación.</div>
+                            <div class="card-source">Fuente: World Economic Forum (WEF)</div>
+                        </div>
+                        <div style="text-align: right; min-width: 170px;">
+                            <div style="font-size: 11px; color: #777; margin-bottom: 4px; font-family: var(--font-mono); text-transform: uppercase;">Mercado global IA</div>
+                            <div style="font-size: 36px; font-weight: 800; color: var(--secondary-accent); line-height: 1; font-family: var(--font-heading);">B</div>
+                            <div style="font-size: 11px; color: #777; font-family: var(--font-mono); text-transform: uppercase; margin-top: 4px;">en 2026 · CAGR +27,7%</div>
+                            <div style="font-size: 22px; font-weight: 800; color: #fff; margin-top: 8px; line-height: 1; font-family: var(--font-heading);">B en 2030</div>
+                            <div class="card-source" style="text-align: right;">Fuente: Statista / ALM Corp</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5: El Riesgo de Inacción (Span 4) -->
+                <div class="bento-card card-light span-4" style="display: flex; flex-direction: column; justify-content: space-between;">
+                    <span class="tag" style="background: rgba(168,23,48,0.1); color: var(--accent-color);">Alerta de adaptación</span>
+                    <div>
+                        <div style="font-size: 22px; font-weight: 900; line-height: 1.2; margin-bottom: 0.8rem; font-family: var(--font-heading); text-transform: uppercase;">
+                            60% DE LOS EMPLEOS <br><em style="font-style: italic; color: var(--accent-color) !important;">NECESITAN ADAPTACIÓN</em>
+                        </div>
+                        <p style="font-size: 0.9rem; color: #404040; line-height: 1.5; margin: 0;">
+                            El 43% de empresas planea ajustar plantilla por automatización. El riesgo sin adaptación es del 62%, frente a solo un 12% para quien domina la IA.
+                        </p>
+                        <div class="card-source" style="margin-top: 1rem;">Fuente: ALM Corp</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: CURSOS EN VENTA (Light Mode - Principio 2: Divulgación Progresiva & Principio 6: Proximidad) -->
+    <section id="cursos" class="section-light" style="background: #f2efe8; padding: 8rem 0; border-top: none;">
+        <div class="container" style="position: relative; z-index: 2;">
+            <div style="text-align: center; margin-bottom: 4.5rem;">
+                <p style="font-family: var(--font-mono); color: var(--accent-color); font-size: 0.8rem; letter-spacing: 0.2em; margin-bottom: 1rem; text-transform: uppercase; font-weight: 700;">
+                    02 — CATÁLOGO FORMATIVO EN VENTA
+                </p>
+                <h2 style="font-size: clamp(2.2rem, 4vw, 3.2rem); line-height: 1.15;">
+                    TRES CURSOS ESPECIALIZADOS <br><span class="text-gradient">CON SUS HORARIOS Y CONVOCATORIAS</span>
+                </h2>
+                <p style="color: #404040; max-width: 680px; margin: 1.2rem auto 0; font-size: 1.1rem; line-height: 1.7;">
+                    Cursos de 20 horas lectivas diseñados para transformar tu día a día profesional. Impartidos por especialistas de vanguardia con casos reales.
+                </p>
+            </div>
+
+            <!-- 3 Course Cards -->
+            <div class="course-portfolio-grid">
+                
+                <!-- CURSO 1: ESENCIAL -->
+                <div class="portfolio-course-card">
+                    <div>
+                        <div class="card-course-badge badge-esencial">
+                            <i class="fa-solid fa-bolt" aria-hidden="true"></i> ÚNICA CONVOCATORIA · NIVEL INICIAL
+                        </div>
+                        <h3 style="font-size: 1.85rem; font-family: var(--font-heading); text-transform: uppercase;">
+                            Visión IA Esencial
+                        </h3>
+                        <p style="font-weight: 700; color: #111111; margin-bottom: 0.8rem;">
+                            Empieza a trabajar con Inteligencia Artificial con seguridad y criterio.
+                        </p>
+                        <p style="font-style: italic; font-size: 0.9rem; color: #4b4b4b; border-left: 3px solid var(--accent-color); padding-left: 0.8rem; margin-bottom: 1.2rem;">
+                            “En solo 20 horas pasarás de luchar contra la hoja en blanco a tener borradores, correos y actas listos en segundos.”
+                        </p>
+
+                        <!-- Course Metadata Box (Principio 6: Proximidad) -->
+                        <div class="course-meta-box">
+                            <div class="course-meta-row">
+                                <span class="course-meta-label"><i class="fa-regular fa-calendar" aria-hidden="true"></i> Fechas</span>
+                                <span class="course-meta-value" style="color: var(--accent-color);">05 – 24 NOV 2026</span>
+                            </div>
+                            <div class="course-meta-row">
+                                <span class="course-meta-label"><i class="fa-regular fa-clock" aria-hidden="true"></i> Horario</span>
+                                <span class="course-meta-value">Mar y Jue · 16:30–19:30</span>
+                            </div>
+                            <div class="course-meta-row">
+                                <span class="course-meta-label"><i class="fa-solid fa-hourglass-half" aria-hidden="true"></i> Duración</span>
+                                <span class="course-meta-value">20 horas lectivas</span>
+                            </div>
+                            <div class="course-meta-row">
+                                <span class="course-meta-label"><i class="fa-solid fa-user-tie" aria-hidden="true"></i> Docente</span>
+                                <span class="course-meta-value">Ani García (Agēntik)</span>
+                            </div>
+                            <div class="course-meta-row">
+                                <span class="course-meta-label"><i class="fa-solid fa-box-archive" aria-hidden="true"></i> Entregable</span>
+                                <span class="course-meta-value">Uso diario con criterio</span>
+                            </div>
+                        </div>
+
+                        <!-- Top Competencies Scannable Bullets -->
+                        <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1rem;">
+                            <li style="font-size: 0.88rem; color: #333; display: flex; align-items: center; gap: 0.5rem;">
+                                <span style="color: var(--accent-color); font-weight: bold;">✔</span> Entender la IA y sus límites operativos
+                            </li>
+                            <li style="font-size: 0.88rem; color: #333; display: flex; align-items: center; gap: 0.5rem;">
+                                <span style="color: var(--accent-color); font-weight: bold;">✔</span> Documentos, redacción y síntesis en segundos
+                            </li>
+                            <li style="font-size: 0.88rem; color: #333; display: flex; align-items: center; gap: 0.5rem;">
+                                <span style="color: var(--accent-color); font-weight: bold;">✔</span> Formulación de prompts eficaces y reproducibles
+                            </li>
+                        </ul>
+
+                        <!-- Progressive Disclosure: Expand Full Syllabus -->
+                        <button type="button" class="disclosure-toggle" data-target="details-esencial" aria-expanded="false">
+                            Ver los 6 módulos y herramientas <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                        </button>
+
+                        <div class="disclosure-content" id="details-esencial">
+                            <div style="padding-top: 0.8rem;">
+                                <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.4rem; font-size: 0.84rem; color: #555;">
+                                    <li><strong>01</strong> Entender la IA generativa y sus límites</li>
+                                    <li><strong>02</strong> Trabajar con documentos de forma rápida</li>
+                                    <li><strong>03</strong> Redactar, resumir y transformar información</li>
+                                    <li><strong>04</strong> Prompting estructurado</li>
+                                    <li><strong>05</strong> Investigar y buscar información con IA</li>
+                                    <li><strong>06</strong> Productividad en correos y reuniones</li>
+                                </ul>
+                                <div class="course-tools-row">
+                                    <span class="tool-chip">ChatGPT</span>
+                                    <span class="tool-chip">Perplexity</span>
+                                    <span class="tool-chip">Google Gemini</span>
+                                    <span class="tool-chip">NotebookLM</span>
+                                    <span class="tool-chip">DALL·E</span>
+                                    <span class="tool-chip">Claude</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Price & CTA Anchor (Principio 6: Proximidad) -->
+                    <div style="margin-top: 2rem; padding-top: 1.2rem; border-top: 1px solid rgba(0,0,0,0.08);">
+                        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 1.2rem;">
+                            <div>
+                                <span style="font-size: 0.75rem; color: #666; font-family: var(--font-mono);">PVP 495 € · Bonificable</span>
+                                <div style="font-size: 1.7rem; font-weight: 900; color: #111; font-family: var(--font-heading); line-height: 1;">
+                                    Desde 235 € <span style="font-size: 0.75rem; font-weight: normal; color: #666;">neto*</span>
+                                </div>
+                            </div>
+                            <span style="background: #d4a600; color: #000; font-family: var(--font-mono); font-size: 0.65rem; font-weight: 700; padding: 0.25rem 0.6rem; border-radius: 4px;">FUNDAE</span>
+                        </div>
+                        <button onclick="selectCourse('esencial')" class="btn btn-primary" style="width: 100%; text-align: center; font-size: 0.82rem; padding: 0.9rem;">
+                            INSCRIBIRME EN ESENCIAL →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- CURSO 2: AVANZADO (Destacado) -->
+                <div class="portfolio-course-card featured">
+                    <div>
+                        <div class="card-course-badge badge-avanzado">
+                            <i class="fa-solid fa-fire" aria-hidden="true"></i> EDICIONES MENSUALES · NIVEL PROCESOS
+                        </div>
+                        <h3 style="font-size: 1.85rem; font-family: var(--font-heading); text-transform: uppercase;">
+                            Visión IA Avanzado
+                        </h3>
+                        <p style="font-weight: 700; color: #111111; margin-bottom: 0.8rem;">
+                            Integra la IA en tus procesos y multiplica la productividad.
+                        </p>
+                        <p style="font-size: 0.9rem; color: #4b4b4b; margin-bottom: 1.2rem; line-height: 1.5;">
+                            ¿Te imaginas pedirle a una IA que programe una aplicación exclusiva para tu empresa… y que lo haga delante de tus ojos? Con Google Antigravity el siguiente paso es crear software a medida.
+                        </p>
+
+                        <!-- Course Metadata Box -->
+                        <div class="course-meta-box">
+                            <div class="course-meta-row">
+                                <span class="course-meta-label"><i class="fa-regular fa-calendar" aria-hidden="true"></i> Fechas</span>
+                                <span class="course-meta-value" style="color: #c92a2a;">10 – 26 NOV 2026</span>
+                            </div>
+                            <div class="course-meta-row">
+                                <span class="course-meta-label"><i class="fa-regular fa-clock" aria-hidden="true"></i> Horario</span>
+                                <span class="course-meta-value">Mar y Jue · 16:30–19:50</span>
+                            </div>
+                            <div class="course-meta-row">
+                                <span class="course-meta-label"><i class="fa-solid fa-hourglass-half" aria-hidden="true"></i> Duración</span>
+                                <span class="course-meta-value">20 horas lectivas</span>
+                            </div>
+                            <div class="course-meta-row">
+                                <span class="course-meta-label"><i class="fa-solid fa-user-tie" aria-hidden="true"></i> Docente</span>
+                                <span class="course-meta-value">Natalia Martínez (CloneByMe)</span>
+                            </div>
+                            <div class="course-meta-row">
+                                <span class="course-meta-label"><i class="fa-solid fa-box-archive" aria-hidden="true"></i> Entregable</span>
+                                <span class="course-meta-value">Flujos y asistentes a medida</span>
+                            </div>
+                        </div>
+
+                        <!-- Top Competencies Scannable Bullets -->
+                        <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1rem;">
+                            <li style="font-size: 0.88rem; color: #333; display: flex; align-items: center; gap: 0.5rem;">
+                                <span style="color: #c92a2a; font-weight: bold;">✔</span> Diseñar flujos de trabajo inteligentes con IA
+                            </li>
+                            <li style="font-size: 0.88rem; color: #333; display: flex; align-items: center; gap: 0.5rem;">
+                                <span style="color: #c92a2a; font-weight: bold;">✔</span> Asistentes con conocimiento corporativo propio
+                            </li>
+                            <li style="font-size: 0.88rem; color: #333; display: flex; align-items: center; gap: 0.5rem;">
+                                <span style="color: #c92a2a; font-weight: bold;">✔</span> Automatización no-code de tareas repetitivas
+                            </li>
+                        </ul>
+
+                        <!-- Progressive Disclosure: Expand Full Syllabus -->
+                        <button type="button" class="disclosure-toggle" data-target="details-avanzado" aria-expanded="false">
+                            Ver los 4 bloques y stack técnico <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                        </button>
+
+                        <div class="disclosure-content" id="details-avanzado">
+                            <div style="padding-top: 0.8rem;">
+                                <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.4rem; font-size: 0.84rem; color: #555;">
+                                    <li><strong>1.1</strong> Diseñar flujos de trabajo con IA</li>
+                                    <li><strong>1.2</strong> Crear asistentes y recursos personalizados</li>
+                                    <li><strong>1.3</strong> Automatizar procesos administrativos y operativos</li>
+                                    <li><strong>1.4</strong> Analizar, presentar y colaborar con IA</li>
+                                </ul>
+                                <div class="course-tools-row">
+                                    <span class="tool-chip" style="background: #e8d7d9; color: #801024;">Google Antigravity</span>
+                                    <span class="tool-chip">Copilot Studio</span>
+                                    <span class="tool-chip">Claude 3.5</span>
+                                    <span class="tool-chip">Make</span>
+                                    <span class="tool-chip">Flowise</span>
+                                    <span class="tool-chip">NotebookLM</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Price & CTA Anchor -->
+                    <div style="margin-top: 2rem; padding-top: 1.2rem; border-top: 1px solid rgba(0,0,0,0.08);">
+                        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 1.2rem;">
+                            <div>
+                                <span style="font-size: 0.75rem; color: #666; font-family: var(--font-mono);">PVP 495 € · Bonificable</span>
+                                <div style="font-size: 1.7rem; font-weight: 900; color: #111; font-family: var(--font-heading); line-height: 1;">
+                                    Desde 235 € <span style="font-size: 0.75rem; font-weight: normal; color: #666;">neto*</span>
+                                </div>
+                            </div>
+                            <span style="background: #d4a600; color: #000; font-family: var(--font-mono); font-size: 0.65rem; font-weight: 700; padding: 0.25rem 0.6rem; border-radius: 4px;">FUNDAE</span>
+                        </div>
+                        <button onclick="selectCourse('avanzado')" class="btn btn-primary" style="width: 100%; text-align: center; font-size: 0.82rem; padding: 0.9rem; background: var(--accent-color);">
+                            INSCRIBIRME EN AVANZADO →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- CURSO 3: PRO -->
+                <div class="portfolio-course-card">
+                    <div>
+                        <div class="card-course-badge badge-pro">
+                            <i class="fa-solid fa-code" aria-hidden="true"></i> ESPECIALIZACIÓN EXPERTA · NIVEL PRO
+                        </div>
+                        <h3 style="font-size: 1.85rem; font-family: var(--font-heading); text-transform: uppercase;">
+                            Visión IA PRO
+                        </h3>
+                        <p style="font-weight: 700; color: #111111; margin-bottom: 0.8rem;">
+                            Agentes, automatización y desarrollo con IA en producción.
+                        </p>
+                        <p style="font-size: 0.9rem; color: #4b4b4b; margin-bottom: 1.2rem; line-height: 1.5;">
+                            Continuidad del nivel Avanzado: del no-code a la construcción de sistemas propios de IA, desplegados con seguridad, bases de datos vectoriales y gobernanza AI Act.
+                        </p>
+
+                        <!-- Course Metadata Box -->
+                        <div class="course-meta-box">
+                            <div class="course-meta-row">
+                                <span class="course-meta-label"><i class="fa-regular fa-calendar" aria-hidden="true"></i> Fechas</span>
+                                <span class="course-meta-value" style="color: #b45309;">09 – 25 NOV 2026</span>
+                            </div>
+                            <div class="course-meta-row">
+                                <span class="course-meta-label"><i class="fa-regular fa-clock" aria-hidden="true"></i> Horario</span>
+                                <span class="course-meta-value">Lun y Mié · 16:30–19:50</span>
+                            </div>
+                            <div class="course-meta-row">
+                                <span class="course-meta-label"><i class="fa-solid fa-hourglass-half" aria-hidden="true"></i> Formato</span>
+                                <span class="course-meta-value">6 sesiones × 3h (18–20h)</span>
+                            </div>
+                            <div class="course-meta-row">
+                                <span class="course-meta-label"><i class="fa-solid fa-user-group" aria-hidden="true"></i> Docentes</span>
+                                <span class="course-meta-value">Ángel B. & José R. (AgenzIA)</span>
+                            </div>
+                            <div class="course-meta-row">
+                                <span class="course-meta-label"><i class="fa-solid fa-box-archive" aria-hidden="true"></i> Entregable</span>
+                                <span class="course-meta-value">Sistema IA operativo desplegado</span>
+                            </div>
+                        </div>
+
+                        <!-- Top Competencies Scannable Bullets -->
+                        <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1rem;">
+                            <li style="font-size: 0.88rem; color: #333; display: flex; align-items: center; gap: 0.5rem;">
+                                <span style="color: #b45309; font-weight: bold;">✔</span> Automatizaciones n8n con APIs y webhooks
+                            </li>
+                            <li style="font-size: 0.88rem; color: #333; display: flex; align-items: center; gap: 0.5rem;">
+                                <span style="color: #b45309; font-weight: bold;">✔</span> Agentes RAG conectados a Supabase y protocolo MCP
+                            </li>
+                            <li style="font-size: 0.88rem; color: #333; display: flex; align-items: center; gap: 0.5rem;">
+                                <span style="color: #b45309; font-weight: bold;">✔</span> Terminal con Claude Code y apps en Lovable
+                            </li>
+                        </ul>
+
+                        <!-- Progressive Disclosure: Expand Full Syllabus -->
+                        <button type="button" class="disclosure-toggle" data-target="details-pro" aria-expanded="false">
+                            Ver las 6 sesiones prácticas <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                        </button>
+
+                        <div class="disclosure-content" id="details-pro">
+                            <div style="padding-top: 0.8rem;">
+                                <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.4rem; font-size: 0.84rem; color: #555;">
+                                    <li><strong>S1</strong> Del no-code al nivel PRO (Cerebro Central & setup)</li>
+                                    <li><strong>S2</strong> Automatización avanzada con n8n y subflujos</li>
+                                    <li><strong>S3</strong> Agentes IA con conocimiento (RAG + Servidor MCP)</li>
+                                    <li><strong>S4</strong> Claude Code: El agente de desarrollo por terminal</li>
+                                    <li><strong>S5</strong> Desarrollo de software rápido con Lovable y Supabase</li>
+                                    <li><strong>S6</strong> Integración end-to-end, control de costes y AI Act</li>
+                                </ul>
+                                <div class="course-tools-row">
+                                    <span class="tool-chip" style="background: #ffedd5; color: #9a3412;">n8n</span>
+                                    <span class="tool-chip">Claude Code</span>
+                                    <span class="tool-chip">Supabase</span>
+                                    <span class="tool-chip">Lovable</span>
+                                    <span class="tool-chip">MCP Server</span>
+                                    <span class="tool-chip">GitHub</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Price & CTA Anchor -->
+                    <div style="margin-top: 2rem; padding-top: 1.2rem; border-top: 1px solid rgba(0,0,0,0.08);">
+                        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 1.2rem;">
+                            <div>
+                                <span style="font-size: 0.75rem; color: #666; font-family: var(--font-mono);">PVP 495 € · Bonificable</span>
+                                <div style="font-size: 1.7rem; font-weight: 900; color: #111; font-family: var(--font-heading); line-height: 1;">
+                                    Desde 235 € <span style="font-size: 0.75rem; font-weight: normal; color: #666;">neto*</span>
+                                </div>
+                            </div>
+                            <span style="background: #d4a600; color: #000; font-family: var(--font-mono); font-size: 0.65rem; font-weight: 700; padding: 0.25rem 0.6rem; border-radius: 4px;">FUNDAE</span>
+                        </div>
+                        <button onclick="selectCourse('pro')" class="btn btn-primary" style="width: 100%; text-align: center; font-size: 0.82rem; padding: 0.9rem;">
+                            INSCRIBIRME EN PRO →
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: ITINERARIO & COMPARATIVA (Dark Mode - Principio 1: Jerarquía y Comparativa) -->
+    <section id="itinerario" style="background: #000000; padding: 8rem 0; position: relative;">
+        <div class="parallax-bg" style="background-image: url('./Links/src/Recurso 3.svg');"></div>
+        <div class="container" style="position: relative; z-index: 2;">
+            <div style="margin-bottom: 4.5rem; text-align: left;">
+                <p style="font-family: var(--font-mono); color: var(--accent-color); font-size: 0.8rem; letter-spacing: 0.2em; margin-bottom: 1rem; text-transform: uppercase;">
+                    03 — LA FORMACIÓN QUE VIENE
+                </p>
+                <h2 style="font-size: clamp(2.2rem, 4vw, 3.2rem); line-height: 1.1; text-transform: uppercase;">
+                    UN ITINERARIO <br><span class="text-gradient">MULTINIVEL Y RECURRENTE</span>
+                </h2>
+                <p style="color: #a3a3a3; font-size: 1.1rem; max-width: 680px; line-height: 1.7;">
+                    Visión IA crece por niveles: cada curso prepara el siguiente, y las ediciones se repiten cada mes para que tu equipo entre cuando lo necesite.
+                </p>
+            </div>
+
+            <!-- 3 Progression Pathway Cards (Principio 7: Coordinación) -->
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-bottom: 5rem;">
+                <div class="pathway-step">
+                    <div class="pathway-num">01</div>
+                    <div>
+                        <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--secondary-accent); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700;">NIVEL INICIAL</span>
+                        <h3 style="font-size: 1.35rem; margin: 0.3rem 0; color: #fff;">ESENCIAL</h3>
+                        <p style="font-size: 0.88rem; color: #999; margin: 0; line-height: 1.55;">
+                            Fundamentos, eliminación de la fricción con la IA y uso seguro con criterio en tareas administrativas y documentales diarias.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="pathway-step">
+                    <div class="pathway-num">02</div>
+                    <div>
+                        <span style="font-family: var(--font-mono); font-size: 0.72rem; color: #e04646; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700;">NIVEL PROCESOS</span>
+                        <h3 style="font-size: 1.35rem; margin: 0.3rem 0; color: #fff;">AVANZADO</h3>
+                        <p style="font-size: 0.88rem; color: #999; margin: 0; line-height: 1.55;">
+                            Flujos de trabajo conectados, asistentes a medida con datos propios, automatización no-code y software con Google Antigravity.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="pathway-step">
+                    <div class="pathway-num">03</div>
+                    <div>
+                        <span style="font-family: var(--font-mono); font-size: 0.72rem; color: #f59e0b; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700;">NIVEL EXPERTO</span>
+                        <h3 style="font-size: 1.35rem; margin: 0.3rem 0; color: #fff;">PRO</h3>
+                        <p style="font-size: 0.88rem; color: #999; margin: 0; line-height: 1.55;">
+                            Agentes de IA autónomos 24/7, RAG en bases Supabase, protocolo MCP, terminal con Claude Code y gobernanza bajo el AI Act.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Official Comparative Matrix Table (Principio 5: Accesibilidad con scopes) -->
+            <div style="margin-top: 2rem;">
+                <h3 style="font-size: 2rem; margin-bottom: 1.5rem; text-transform: uppercase;">
+                    TRES NIVELES, <span class="text-gradient">UN MISMO ITINERARIO</span>
+                </h3>
+                
+                <div class="matrix-container">
+                    <table class="matrix-table">
+                        <thead>
+                            <tr>
+                                <th scope="col" style="width: 22%;">Criterio</th>
+                                <th scope="col" class="level-col" style="border-top: 3px solid #a81730;">
+                                    <span style="font-size: 0.7rem; font-family: var(--font-mono); color: #a81730; display: block;">ÚNICA CONVOCATORIA</span>
+                                    VISIÓN IA ESENCIAL
+                                </th>
+                                <th scope="col" class="level-col" style="border-top: 3px solid #e04646; background: #fff9f9;">
+                                    <span style="font-size: 0.7rem; font-family: var(--font-mono); color: #e04646; display: block;">DISPONIBLE</span>
+                                    VISIÓN IA AVANZADO
+                                </th>
+                                <th scope="col" class="level-col" style="border-top: 3px solid #f59e0b;">
+                                    <span style="font-size: 0.7rem; font-family: var(--font-mono); color: #b45309; display: block;">DISPONIBLE</span>
+                                    VISIÓN IA PRO
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row" class="matrix-label">Modalidad</th>
+                                <td class="matrix-val">Online y presencial</td>
+                                <td class="matrix-val" style="background: #fff9f9;">Online y presencial</td>
+                                <td class="matrix-val">Online y presencial</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="matrix-label">Duración</th>
+                                <td class="matrix-val">20 horas</td>
+                                <td class="matrix-val" style="background: #fff9f9;">20 horas</td>
+                                <td class="matrix-val">6 sesiones × 3 h (18–20 h)</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="matrix-label">Inicio y Fechas</th>
+                                <td class="matrix-val"><strong>05 nov 2026</strong> (Única edición)</td>
+                                <td class="matrix-val" style="background: #fff9f9;"><strong>10 nov 2026</strong> + Ediciones 2027</td>
+                                <td class="matrix-val"><strong>09 nov 2026</strong> + Ediciones 2027</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="matrix-label">Horario</th>
+                                <td class="matrix-val">Mar y Jue · 16:30–19:30</td>
+                                <td class="matrix-val" style="background: #fff9f9;">Mar y Jue · 16:30–19:50</td>
+                                <td class="matrix-val">Lun y Mié · 16:30–19:50</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="matrix-label">Enfoque</th>
+                                <td class="matrix-val">Usar la IA con seguridad y criterio en tareas diarias</td>
+                                <td class="matrix-val" style="background: #fff9f9;">Integrar la IA en procesos, asistentes y apps a medida</td>
+                                <td class="matrix-val">Agentes autónomos, automatización y desarrollo en producción</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="matrix-label">Herramientas</th>
+                                <td class="matrix-val">ChatGPT · Perplexity · Gemini · Claude · DALL·E</td>
+                                <td class="matrix-val" style="background: #fff9f9;">Google Antigravity · Copilot Studio · Make · Flowise</td>
+                                <td class="matrix-val">n8n · Claude Code · Supabase · Lovable · MCP · GitHub</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="matrix-label">Docente(s)</th>
+                                <td class="matrix-val">Ani García (Agēntik)</td>
+                                <td class="matrix-val" style="background: #fff9f9;">Natalia Martínez (CloneByMe)</td>
+                                <td class="matrix-val">Ángel Bustamante & José R. (AgenzIA)</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="matrix-label">Entregable</th>
+                                <td class="matrix-val">Uso diario de IA con criterio</td>
+                                <td class="matrix-val" style="background: #fff9f9;">Flujos y asistentes a medida</td>
+                                <td class="matrix-val">Sistema IA operativo en tu empresa</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="matrix-label">Inscripción</th>
+                                <td class="matrix-val">
+                                    <button onclick="selectCourse('esencial')" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.72rem;">Elegir Esencial</button>
+                                </td>
+                                <td class="matrix-val" style="background: #fff9f9;">
+                                    <button onclick="selectCourse('avanzado')" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.72rem; background: #e04646;">Elegir Avanzado</button>
+                                </td>
+                                <td class="matrix-val">
+                                    <button onclick="selectCourse('pro')" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.72rem; background: #b45309;">Elegir PRO</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Open Events Highlight (Dic 2026 - Principio 4: Contraste Estratégico) -->
+            <div style="margin-top: 4.5rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 1.25rem; padding: 2.5rem;">
+                <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--secondary-accent); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 0.5rem;">
+                    ADEMÁS, EN ABIERTO Y GRATUITO
+                </div>
+                <h3 style="font-size: 1.8rem; margin-bottom: 1.8rem;">
+                    EVENTOS Y WEBINARS EXCLUSIVOS · DICIEMBRE 2026
+                </h3>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem;">
+                    <!-- Event 1 -->
+                    <div style="background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.08); border-radius: 1rem; padding: 1.8rem; display: flex; gap: 1.5rem; align-items: center;">
+                        <div style="background: var(--accent-color); color: white; border-radius: 0.75rem; padding: 0.8rem 1.2rem; text-align: center; min-width: 70px;">
+                            <div style="font-size: 1.8rem; font-weight: 900; line-height: 1; font-family: var(--font-heading);">10</div>
+                            <div style="font-family: var(--font-mono); font-size: 0.7rem; text-transform: uppercase;">DIC</div>
+                        </div>
+                        <div>
+                            <span style="font-family: var(--font-mono); font-size: 0.68rem; color: #eee; text-transform: uppercase; background: rgba(255,255,255,0.12); padding: 0.2rem 0.5rem; border-radius: 4px;">WEBINAR ONLINE</span>
+                            <h4 style="font-size: 1.15rem; margin: 0.4rem 0 0.2rem; color: #fff;">Captación IA 2027</h4>
+                            <p style="font-size: 0.85rem; color: #a3a3a3; margin: 0;">Ponente: Mariano Salas · Jueves 17:00 – 18:30</p>
+                        </div>
+                    </div>
+
+                    <!-- Event 2 -->
+                    <div style="background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.08); border-radius: 1rem; padding: 1.8rem; display: flex; gap: 1.5rem; align-items: center;">
+                        <div style="background: #a81730; color: white; border-radius: 0.75rem; padding: 0.8rem 1.2rem; text-align: center; min-width: 70px;">
+                            <div style="font-size: 1.8rem; font-weight: 900; line-height: 1; font-family: var(--font-heading);">16</div>
+                            <div style="font-family: var(--font-mono); font-size: 0.7rem; text-transform: uppercase;">DIC</div>
+                        </div>
+                        <div>
+                            <span style="font-family: var(--font-mono); font-size: 0.68rem; color: #eee; text-transform: uppercase; background: rgba(255,255,255,0.12); padding: 0.2rem 0.5rem; border-radius: 4px;">SEMINARIO PRÁCTICO</span>
+                            <h4 style="font-size: 1.15rem; margin: 0.4rem 0 0.2rem; color: #fff;">Ejecutivo & Diagnóstico B2B</h4>
+                            <p style="font-size: 0.85rem; color: #a3a3a3; margin: 0;">Caso Práctico en Directo · Miércoles 16:30 – 19:00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 4: CALENDARIO COMPLETO 2026–2027 (Light Mode - Principio 2: Divulgación Progresiva y Pestañas Accesibles) -->
+    <section id="calendario" class="section-light" style="background: #f2efe8; padding: 8rem 0;">
+        <div class="container" style="position: relative; z-index: 2;">
+            <div style="text-align: center; margin-bottom: 3.5rem;">
+                <p style="font-family: var(--font-mono); color: var(--accent-color); font-size: 0.8rem; letter-spacing: 0.2em; margin-bottom: 1rem; text-transform: uppercase; font-weight: 700;">
+                    04 — CALENDARIO & HORARIOS ACADÉMICOS
+                </p>
+                <h2 style="font-size: clamp(2.2rem, 4vw, 3.2rem); line-height: 1.1;">
+                    FECHAS PREVISTAS <br><span class="text-gradient">NOVIEMBRE 2026 – ABRIL 2027</span>
+                </h2>
+                <p style="color: #404040; max-width: 620px; margin: 1.2rem auto 0; font-size: 1.05rem; line-height: 1.7;">
+                    Navega por los meses del curso académico para consultar convocatorias, horarios y eventos especiales.
+                </p>
+            </div>
+
+            <!-- Accessible Month Tabs Selector (Principio 5: Accesibilidad con role=tablist) -->
+            <div class="cal-tabs" style="justify-content: center;" role="tablist" aria-label="Meses del calendario académico">
+                <button class="cal-tab-btn active" data-month="nov26" role="tab" aria-selected="true" id="tab-nov26" aria-controls="month-nov26">Nov 2026</button>
+                <button class="cal-tab-btn" data-month="dic26" role="tab" aria-selected="false" id="tab-dic26" aria-controls="month-dic26">Dic 2026 (Eventos)</button>
+                <button class="cal-tab-btn" data-month="ene27" role="tab" aria-selected="false" id="tab-ene27" aria-controls="month-ene27">Ene 2027</button>
+                <button class="cal-tab-btn" data-month="feb27" role="tab" aria-selected="false" id="tab-feb27" aria-controls="month-feb27">Feb 2027</button>
+                <button class="cal-tab-btn" data-month="mar27" role="tab" aria-selected="false" id="tab-mar27" aria-controls="month-mar27">Mar 2027</button>
+                <button class="cal-tab-btn" data-month="abr27" role="tab" aria-selected="false" id="tab-abr27" aria-controls="month-abr27">Abr 2027</button>
+            </div>
+
+            <!-- Month Content Panels -->
+
+            <!-- NOV 2026 -->
+            <div class="cal-month-card active" id="month-nov26" role="tabpanel" aria-labelledby="tab-nov26">
+                <div class="month-summary-grid">
+                    <div class="month-course-item item-esencial">
+                        <span style="font-family: var(--font-mono); font-size: 0.72rem; color: #a81730; font-weight: 700; text-transform: uppercase;">ÚNICA CONVOCATORIA</span>
+                        <h4 style="font-size: 1.35rem; margin: 0.4rem 0 0.6rem; color: #111;">VISIÓN IA ESENCIAL</h4>
+                        <div style="font-size: 0.95rem; font-weight: 700; color: #222; margin-bottom: 0.3rem;">05 – 24 noviembre 2026</div>
+                        <div style="font-size: 0.85rem; color: #555;"><i class="fa-regular fa-clock" aria-hidden="true"></i> Martes y Jueves · 16:30 – 19:30</div>
+                        <p style="font-size: 0.85rem; color: #444; margin-top: 0.8rem;">Docente: Ani García · 20 horas lectivas</p>
+                        <button onclick="selectCourse('esencial')" class="btn btn-primary" style="margin-top: 1rem; padding: 0.5rem 1.2rem; font-size: 0.72rem; width: 100%;">Reservar Esencial →</button>
+                    </div>
+
+                    <div class="month-course-item item-avanzado">
+                        <span style="font-family: var(--font-mono); font-size: 0.72rem; color: #e04646; font-weight: 700; text-transform: uppercase;">EDICIÓN NOVIEMBRE</span>
+                        <h4 style="font-size: 1.35rem; margin: 0.4rem 0 0.6rem; color: #111;">VISIÓN IA AVANZADO</h4>
+                        <div style="font-size: 0.95rem; font-weight: 700; color: #222; margin-bottom: 0.3rem;">10 – 26 noviembre 2026</div>
+                        <div style="font-size: 0.85rem; color: #555;"><i class="fa-regular fa-clock" aria-hidden="true"></i> Martes y Jueves · 16:30 – 19:50</div>
+                        <p style="font-size: 0.85rem; color: #444; margin-top: 0.8rem;">Docente: Natalia Martínez · 20 horas lectivas</p>
+                        <button onclick="selectCourse('avanzado')" class="btn btn-primary" style="margin-top: 1rem; padding: 0.5rem 1.2rem; font-size: 0.72rem; width: 100%; background: #e04646;">Reservar Avanzado →</button>
+                    </div>
+
+                    <div class="month-course-item item-pro">
+                        <span style="font-family: var(--font-mono); font-size: 0.72rem; color: #b45309; font-weight: 700; text-transform: uppercase;">EDICIÓN NOVIEMBRE</span>
+                        <h4 style="font-size: 1.35rem; margin: 0.4rem 0 0.6rem; color: #111;">VISIÓN IA PRO</h4>
+                        <div style="font-size: 0.95rem; font-weight: 700; color: #222; margin-bottom: 0.3rem;">09 – 25 noviembre 2026</div>
+                        <div style="font-size: 0.85rem; color: #555;"><i class="fa-regular fa-clock" aria-hidden="true"></i> Lunes y Miércoles · 16:30 – 19:50</div>
+                        <p style="font-size: 0.85rem; color: #444; margin-top: 0.8rem;">Docentes: Ángel B. & José R. (AgenzIA) · 6 sesiones</p>
+                        <button onclick="selectCourse('pro')" class="btn btn-primary" style="margin-top: 1rem; padding: 0.5rem 1.2rem; font-size: 0.72rem; width: 100%; background: #b45309;">Reservar PRO →</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DIC 2026 -->
+            <div class="cal-month-card" id="month-dic26" role="tabpanel" aria-labelledby="tab-dic26">
+                <div class="month-summary-grid">
+                    <div class="month-course-item item-event">
+                        <span style="font-family: var(--font-mono); font-size: 0.72rem; color: #8b5cf6; font-weight: 700; text-transform: uppercase;">WEBINAR EN ABIERTO</span>
+                        <h4 style="font-size: 1.35rem; margin: 0.4rem 0 0.6rem; color: #111;">Captación IA 2027</h4>
+                        <div style="font-size: 0.95rem; font-weight: 700; color: #222; margin-bottom: 0.3rem;">10 de diciembre 2026</div>
+                        <div style="font-size: 0.85rem; color: #555;"><i class="fa-regular fa-clock" aria-hidden="true"></i> Jueves · 17:00 – 18:30</div>
+                        <p style="font-size: 0.85rem; color: #444; margin-top: 0.8rem;">Ponente: Mariano Salas · Online en streaming</p>
+                        <button onclick="selectCourse('eventos')" class="btn btn-primary" style="margin-top: 1rem; padding: 0.5rem 1.2rem; font-size: 0.72rem; width: 100%; background: #8b5cf6;">Registrarme Gratis →</button>
+                    </div>
+
+                    <div class="month-course-item item-event">
+                        <span style="font-family: var(--font-mono); font-size: 0.72rem; color: #8b5cf6; font-weight: 700; text-transform: uppercase;">SEMINARIO EJECUTIVO</span>
+                        <h4 style="font-size: 1.35rem; margin: 0.4rem 0 0.6rem; color: #111;">Ejecutivo & Diagnóstico B2B</h4>
+                        <div style="font-size: 0.95rem; font-weight: 700; color: #222; margin-bottom: 0.3rem;">16 de diciembre 2026</div>
+                        <div style="font-size: 0.85rem; color: #555;"><i class="fa-regular fa-clock" aria-hidden="true"></i> Miércoles · 16:30 – 19:00</div>
+                        <p style="font-size: 0.85rem; color: #444; margin-top: 0.8rem;">Caso práctico real para directivos y líderes B2B</p>
+                        <button onclick="selectCourse('eventos')" class="btn btn-primary" style="margin-top: 1rem; padding: 0.5rem 1.2rem; font-size: 0.72rem; width: 100%; background: #8b5cf6;">Registrarme Gratis →</button>
+                    </div>
+
+                    <div class="month-course-item" style="border-left-color: #999; background: #faf8f5;">
+                        <span style="font-family: var(--font-mono); font-size: 0.72rem; color: #777; font-weight: 700; text-transform: uppercase;">CALENDARIO ACADÉMICO</span>
+                        <h4 style="font-size: 1.35rem; margin: 0.4rem 0 0.6rem; color: #111;">PARÓN NAVIDEÑO</h4>
+                        <div style="font-size: 0.95rem; font-weight: 700; color: #555; margin-bottom: 0.3rem;">22 dic 2026 – 06 ene 2027</div>
+                        <div style="font-size: 0.85rem; color: #777;">Sin actividad lectiva</div>
+                        <p style="font-size: 0.85rem; color: #666; margin-top: 0.8rem;">Periodo de descanso y preparación de las ediciones de 2027.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ENE 2027 -->
+            <div class="cal-month-card" id="month-ene27" role="tabpanel" aria-labelledby="tab-ene27">
+                <div class="month-summary-grid">
+                    <div class="month-course-item item-avanzado">
+                        <span style="font-family: var(--font-mono); font-size: 0.72rem; color: #e04646; font-weight: 700; text-transform: uppercase;">CONVOCATORIA ENERO 2027</span>
+                        <h4 style="font-size: 1.35rem; margin: 0.4rem 0 0.6rem; color: #111;">VISIÓN IA AVANZADO</h4>
+                        <div style="font-size: 0.95rem; font-weight: 700; color: #222; margin-bottom: 0.3rem;">11 – 27 enero 2027</div>
+                        <div style="font-size: 0.85rem; color: #555;"><i class="fa-regular fa-clock" aria-hidden="true"></i> Lunes y Miércoles · Horario de tarde</div>
+                        <p style="font-size: 0.85rem; color: #444; margin-top: 0.8rem;">Modalidad Online y Presencial Murcia</p>
+                        <button onclick="selectCourse('avanzado')" class="btn btn-primary" style="margin-top: 1rem; padding: 0.5rem 1.2rem; font-size: 0.72rem; width: 100%; background: #e04646;">Preinscribirme en Enero →</button>
+                    </div>
+
+                    <div class="month-course-item item-pro">
+                        <span style="font-family: var(--font-mono); font-size: 0.72rem; color: #b45309; font-weight: 700; text-transform: uppercase;">CONVOCATORIA ENERO 2027</span>
+                        <h4 style="font-size: 1.35rem; margin: 0.4rem 0 0.6rem; color: #111;">VISIÓN IA PRO</h4>
+                        <div style="font-size: 0.95rem; font-weight: 700; color: #222; margin-bottom: 0.3rem;">12 – 28 enero 2027</div>
+                        <div style="font-size: 0.85rem; color: #555;"><i class="fa-regular fa-clock" aria-hidden="true"></i> Martes y Jueves · Horario de tarde</div>
+                        <p style="font-size: 0.85rem; color: #444; margin-top: 0.8rem;">Modalidad Online y Presencial Murcia</p>
+                        <button onclick="selectCourse('pro')" class="btn btn-primary" style="margin-top: 1rem; padding: 0.5rem 1.2rem; font-size: 0.72rem; width: 100%; background: #b45309;">Preinscribirme en Enero →</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FEB 2027 -->
+            <div class="cal-month-card" id="month-feb27" role="tabpanel" aria-labelledby="tab-feb27">
+                <div class="month-summary-grid">
+                    <div class="month-course-item item-avanzado">
+                        <span style="font-family: var(--font-mono); font-size: 0.72rem; color: #e04646; font-weight: 700; text-transform: uppercase;">CONVOCATORIA FEBRERO 2027</span>
+                        <h4 style="font-size: 1.35rem; margin: 0.4rem 0 0.6rem; color: #111;">VISIÓN IA AVANZADO</h4>
+                        <div style="font-size: 0.95rem; font-weight: 700; color: #222; margin-bottom: 0.3rem;">08 – 24 febrero 2027</div>
+                        <div style="font-size: 0.85rem; color: #555;"><i class="fa-regular fa-clock" aria-hidden="true"></i> Lunes y Miércoles · Horario de tarde</div>
+                        <button onclick="selectCourse('avanzado')" class="btn btn-primary" style="margin-top: 1rem; padding: 0.5rem 1.2rem; font-size: 0.72rem; width: 100%; background: #e04646;">Preinscribirme en Febrero →</button>
+                    </div>
+
+                    <div class="month-course-item item-pro">
+                        <span style="font-family: var(--font-mono); font-size: 0.72rem; color: #b45309; font-weight: 700; text-transform: uppercase;">CONVOCATORIA FEBRERO 2027</span>
+                        <h4 style="font-size: 1.35rem; margin: 0.4rem 0 0.6rem; color: #111;">VISIÓN IA PRO</h4>
+                        <div style="font-size: 0.95rem; font-weight: 700; color: #222; margin-bottom: 0.3rem;">09 – 25 febrero 2027</div>
+                        <div style="font-size: 0.85rem; color: #555;"><i class="fa-regular fa-clock" aria-hidden="true"></i> Martes y Jueves · Horario de tarde</div>
+                        <button onclick="selectCourse('pro')" class="btn btn-primary" style="margin-top: 1rem; padding: 0.5rem 1.2rem; font-size: 0.72rem; width: 100%; background: #b45309;">Preinscribirme en Febrero →</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MAR 2027 -->
+            <div class="cal-month-card" id="month-mar27" role="tabpanel" aria-labelledby="tab-mar27">
+                <div class="month-summary-grid">
+                    <div class="month-course-item item-pro">
+                        <span style="font-family: var(--font-mono); font-size: 0.72rem; color: #b45309; font-weight: 700; text-transform: uppercase;">CONVOCATORIA MARZO 2027</span>
+                        <h4 style="font-size: 1.35rem; margin: 0.4rem 0 0.6rem; color: #111;">VISIÓN IA PRO</h4>
+                        <div style="font-size: 0.95rem; font-weight: 700; color: #222; margin-bottom: 0.3rem;">01 – 17 marzo 2027</div>
+                        <div style="font-size: 0.85rem; color: #555;"><i class="fa-regular fa-clock" aria-hidden="true"></i> Lunes y Miércoles · Horario de tarde</div>
+                        <button onclick="selectCourse('pro')" class="btn btn-primary" style="margin-top: 1rem; padding: 0.5rem 1.2rem; font-size: 0.72rem; width: 100%; background: #b45309;">Preinscribirme en Marzo →</button>
+                    </div>
+
+                    <div class="month-course-item item-avanzado">
+                        <span style="font-family: var(--font-mono); font-size: 0.72rem; color: #e04646; font-weight: 700; text-transform: uppercase;">CONVOCATORIA MARZO 2027</span>
+                        <h4 style="font-size: 1.35rem; margin: 0.4rem 0 0.6rem; color: #111;">VISIÓN IA AVANZADO</h4>
+                        <div style="font-size: 0.95rem; font-weight: 700; color: #222; margin-bottom: 0.3rem;">02 – 18 marzo 2027</div>
+                        <div style="font-size: 0.85rem; color: #555;"><i class="fa-regular fa-clock" aria-hidden="true"></i> Martes y Jueves · Horario de tarde</div>
+                        <button onclick="selectCourse('avanzado')" class="btn btn-primary" style="margin-top: 1rem; padding: 0.5rem 1.2rem; font-size: 0.72rem; width: 100%; background: #e04646;">Preinscribirme en Marzo →</button>
+                    </div>
+
+                    <div class="month-course-item" style="border-left-color: #999; background: #faf8f5;">
+                        <span style="font-family: var(--font-mono); font-size: 0.72rem; color: #777; font-weight: 700; text-transform: uppercase;">CALENDARIO REGIONAL</span>
+                        <h4 style="font-size: 1.35rem; margin: 0.4rem 0 0.6rem; color: #111;">PARÓN REGIONAL</h4>
+                        <div style="font-size: 0.95rem; font-weight: 700; color: #555; margin-bottom: 0.3rem;">19 mar – 04 abr 2027</div>
+                        <div style="font-size: 0.85rem; color: #777;">San José, Semana Santa y Fiestas de Primavera</div>
+                        <p style="font-size: 0.85rem; color: #666; margin-top: 0.8rem;">Sin actividad lectiva presencial ni online.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ABR 2027 -->
+            <div class="cal-month-card" id="month-abr27" role="tabpanel" aria-labelledby="tab-abr27">
+                <div class="month-summary-grid">
+                    <div class="month-course-item item-pro">
+                        <span style="font-family: var(--font-mono); font-size: 0.72rem; color: #b45309; font-weight: 700; text-transform: uppercase;">CONVOCATORIA ABRIL 2027</span>
+                        <h4 style="font-size: 1.35rem; margin: 0.4rem 0 0.6rem; color: #111;">VISIÓN IA PRO</h4>
+                        <div style="font-size: 0.95rem; font-weight: 700; color: #222; margin-bottom: 0.3rem;">05 – 21 abril 2027</div>
+                        <div style="font-size: 0.85rem; color: #555;"><i class="fa-regular fa-clock" aria-hidden="true"></i> Lunes y Miércoles · Horario de tarde</div>
+                        <button onclick="selectCourse('pro')" class="btn btn-primary" style="margin-top: 1rem; padding: 0.5rem 1.2rem; font-size: 0.72rem; width: 100%; background: #b45309;">Preinscribirme en Abril →</button>
+                    </div>
+
+                    <div class="month-course-item item-avanzado">
+                        <span style="font-family: var(--font-mono); font-size: 0.72rem; color: #e04646; font-weight: 700; text-transform: uppercase;">CONVOCATORIA ABRIL 2027</span>
+                        <h4 style="font-size: 1.35rem; margin: 0.4rem 0 0.6rem; color: #111;">VISIÓN IA AVANZADO</h4>
+                        <div style="font-size: 0.95rem; font-weight: 700; color: #222; margin-bottom: 0.3rem;">06 – 22 abril 2027</div>
+                        <div style="font-size: 0.85rem; color: #555;"><i class="fa-regular fa-clock" aria-hidden="true"></i> Martes y Jueves · Horario de tarde</div>
+                        <button onclick="selectCourse('avanzado')" class="btn btn-primary" style="margin-top: 1rem; padding: 0.5rem 1.2rem; font-size: 0.72rem; width: 100%; background: #e04646;">Preinscribirme en Abril →</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Legal note from dossier -->
+            <div style="margin-top: 2.5rem; padding: 1.5rem; background: rgba(0,0,0,0.02); border-radius: 0.75rem; border: 1px solid rgba(0,0,0,0.06); font-size: 0.78rem; color: #555; line-height: 1.6;">
+                <strong>Aviso legal:</strong> Con el objetivo de mantener la máxima calidad de la formación, la Escuela se reserva el derecho a introducir modificaciones en el programa, incluyendo contenidos, calendario, profesorado o modalidad de impartición, por causas organizativas, académicas o de fuerza mayor. En caso de modificaciones relevantes, se informará oportunamente al alumno.
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 5: PROFESORES (Dark Mode - Principio 6: Proximidad de Perfiles) -->
+    <section id="profesores" style="background: #000000; padding: 8rem 0; position: relative;">
+        <div class="parallax-bg" style="background-image: url('./Links/src/Recurso 4.svg');"></div>
+        <div class="container" style="position: relative; z-index: 2;">
+            <div style="text-align: left; margin-bottom: 4rem;">
+                <p style="font-family: var(--font-mono); color: var(--accent-color); font-size: 0.8rem; letter-spacing: 0.2em; margin-bottom: 1rem; text-transform: uppercase;">
+                    05 — CLAUSTRO DOCENTE DE PRIMER NIVEL
+                </p>
+                <h2 style="font-size: clamp(2.2rem, 4vw, 3.2rem); line-height: 1.1; text-transform: uppercase;">
+                    PROFESORADO QUE CONSTRUYE <br><span class="text-gradient">LA IA EN LA EMPRESA REAL</span>
+                </h2>
+                <p style="color: #a3a3a3; font-size: 1.1rem; max-width: 650px; line-height: 1.7;">
+                    Sin perfiles puramente teóricos: profesionales en activo y fundadores de agencias tecnológicas que transforman organizaciones a diario.
+                </p>
+            </div>
+
+            <!-- Teacher Profiles Grid (Principio 7: Coordinación) -->
+            <div class="teacher-grid">
+                
+                <!-- Ani García -->
+                <div class="teacher-card">
+                    <div class="teacher-img-wrap">
+                        <img src="./Links/docente_ani_garcia.jpg" alt="Fotografía de Ani García, Fundadora de Agēntik">
+                    </div>
+                    <div class="teacher-content">
+                        <div>
+                            <span class="teacher-badge">DOCENTE · VISIÓN IA ESENCIAL</span>
+                            <h3 style="font-size: 1.6rem; color: #fff; margin-bottom: 0.4rem;">Ani García</h3>
+                            <p style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--secondary-accent); margin-bottom: 1rem;">
+                                Especialista en transformación operativa · Fundadora de Agēntik
+                            </p>
+                            <p style="color: #bbb; font-size: 0.92rem; line-height: 1.6;">
+                                Ayuda a las empresas a rediseñar su forma de trabajar mediante la integración de inteligencia artificial, automatización y agentes inteligentes. A través de su metodología <strong>ADIA</strong>, identifica oportunidades de mejora, diseña soluciones y acompaña a las organizaciones combinando tecnología, procesos y personas.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Natalia Martínez Rodríguez -->
+                <div class="teacher-card">
+                    <div class="teacher-img-wrap">
+                        <img src="./Links/docente_natalia_martinez.png" alt="Fotografía de Natalia Martínez Rodríguez, COO de CloneByMe">
+                    </div>
+                    <div class="teacher-content">
+                        <div>
+                            <span class="teacher-badge" style="color: #ff8e8e;">DOCENTE · VISIÓN IA AVANZADO</span>
+                            <h3 style="font-size: 1.6rem; color: #fff; margin-bottom: 0.4rem;">Natalia Martínez Rodríguez</h3>
+                            <p style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--secondary-accent); margin-bottom: 1rem;">
+                                Especialista en desarrollo de negocio · COO de CloneByMe
+                            </p>
+                            <p style="color: #bbb; font-size: 0.92rem; line-height: 1.6;">
+                                Con amplia experiencia en la aplicación estratégica de tecnología e insights para mejorar procesos y modelos digitales, lidera iniciativas de innovación y adopción de tecnologías emergentes como los agentes de IA. Su enfoque une estrategia, datos y tecnología para impulsar eficiencia, crecimiento y transformación empresarial.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ángel Bustamante & José Rodríguez (AgenzIA) -->
+                <div class="teacher-card">
+                    <div class="teacher-img-wrap">
+                        <img src="./Links/docentes_agenzia.png" alt="Fotografía de Ángel Bustamante y José Rodríguez, CEOs de AgenzIA">
+                    </div>
+                    <div class="teacher-content">
+                        <div>
+                            <span class="teacher-badge" style="color: #f59e0b;">DOCENTES · VISIÓN IA PRO</span>
+                            <h3 style="font-size: 1.6rem; color: #fff; margin-bottom: 0.4rem;">Ángel Bustamante & José Rodríguez</h3>
+                            <p style="font-family: var(--font-mono); font-size: 0.8rem; color: #f59e0b; margin-bottom: 1rem;">
+                                CEOs y fundadores de AgenzIA (agenzia.website)
+                            </p>
+                            <p style="color: #bbb; font-size: 0.92rem; line-height: 1.6;">
+                                Diseñan y despliegan para empresas automatizaciones de nivel producción y agentes de IA que trabajan 24/7: más ventas, menos tareas repetitivas y atención sin fricción. En el curso trasladan esa experiencia real a la construcción de sistemas propios con n8n, Claude Code y bases vectoriales Supabase.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: ECOSISTEMA TECNOLÓGICO (Light Mode - Principio 3: Coherencia de Iconografía) -->
+    <section id="herramientas" class="section-light" style="background: #f2efe8; padding: 8rem 0; border-top: none;">
+        <div class="container" style="position: relative; z-index: 2;">
+            <div style="text-align: center; margin-bottom: 4.5rem;">
+                <p style="font-family: var(--font-mono); color: var(--accent-color); font-size: 0.8rem; letter-spacing: 0.2em; margin-bottom: 1rem; text-transform: uppercase; font-weight: 700;">
+                    06 — STACK TECNOLÓGICO Y HERRAMIENTAS
+                </p>
+                <h2 style="font-size: clamp(2.2rem, 4vw, 3.2rem); line-height: 1.15;">
+                    EL ECOSISTEMA QUE <br><span class="text-gradient">APRENDERÁS A MANEJAR</span>
+                </h2>
+                <p style="color: #404040; max-width: 650px; margin: 1.2rem auto 0; font-size: 1.05rem; line-height: 1.7;">
+                    Desde asistentes de lenguaje de última generación hasta plataformas no-code, bases de datos vectoriales y agentes autónomos de código.
+                </p>
+            </div>
+
+            <!-- Bento Tools Grid -->
+            <div class="bento-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem;">
+                <!-- Tool 1: Google Antigravity -->
+                <div class="bento-card tool-card" style="padding: 2.2rem; background: #fff;">
+                    <img src="./Links/logo_google_antigravity.png" alt="Logo Google Antigravity" style="height: 38px; width: auto; object-fit: contain; margin-bottom: 0.8rem;">
+                    <h3 style="font-size: 1.2rem; margin: 0 0 0.4rem; color: #111 !important;">Google Antigravity</h3>
+                    <p style="font-size: 0.88rem; color: #555; margin: 0; line-height: 1.5;">AI Studio y creación acelerada de software empresarial sin barreras de código.</p>
+                </div>
+
+                <!-- Tool 2: Copilot Studio -->
+                <div class="bento-card tool-card" style="padding: 2.2rem; background: #fff;">
+                    <img src="./Links/logo_copilot_studio.svg" alt="Logo Microsoft Copilot Studio" style="height: 38px; width: auto; object-fit: contain; margin-bottom: 0.8rem;">
+                    <h3 style="font-size: 1.2rem; margin: 0 0 0.4rem; color: #111 !important;">Microsoft Copilot Studio</h3>
+                    <p style="font-size: 0.88rem; color: #555; margin: 0; line-height: 1.5;">Agentes conversacionales avanzados e integración en el entorno de trabajo empresarial.</p>
+                </div>
+
+                <!-- Tool 3: Claude Code & Claude Pro -->
+                <div class="bento-card tool-card" style="padding: 2.2rem; background: #fff;">
+                    <div style="font-family: var(--font-heading); font-size: 1.8rem; font-weight: 900; color: #c95a32; margin-bottom: 0.6rem;">Claude</div>
+                    <h3 style="font-size: 1.2rem; margin: 0 0 0.4rem; color: #111 !important;">Claude Code & Claude Pro</h3>
+                    <p style="font-size: 0.88rem; color: #555; margin: 0; line-height: 1.5;">El modelo de razonamiento y agente de terminal más potente para creación de código e informes.</p>
+                </div>
+
+                <!-- Tool 4: n8n -->
+                <div class="bento-card tool-card" style="padding: 2.2rem; background: #fff;">
+                    <div style="font-family: var(--font-heading); font-size: 2rem; font-weight: 900; color: #ea580c; margin-bottom: 0.4rem;">n8n</div>
+                    <h3 style="font-size: 1.2rem; margin: 0 0 0.4rem; color: #111 !important;">n8n Workflows</h3>
+                    <p style="font-size: 0.88rem; color: #555; margin: 0; line-height: 1.5;">Automatización de nivel producción, gestión de errores, webhooks y subflujos con APIs.</p>
+                </div>
+
+                <!-- Tool 5: Make -->
+                <div class="bento-card tool-card" style="padding: 2.2rem; background: #fff;">
+                    <img src="./Links/logo_make_clean.webp" alt="Logo Make Integromat" style="height: 36px; width: auto; object-fit: contain; margin-bottom: 0.8rem;">
+                    <h3 style="font-size: 1.2rem; margin: 0 0 0.4rem; color: #111 !important;">Make (Integromat)</h3>
+                    <p style="font-size: 0.88rem; color: #555; margin: 0; line-height: 1.5;">Conexión visual de aplicaciones corporativas y automatización ágil de tareas repetitivas.</p>
+                </div>
+
+                <!-- Tool 6: Perplexity AI -->
+                <div class="bento-card tool-card" style="padding: 2.2rem; background: #fff;">
+                    <img src="./Links/logo_perplexity_clean.png" alt="Logo Perplexity AI" style="height: 36px; width: auto; object-fit: contain; margin-bottom: 0.8rem;">
+                    <h3 style="font-size: 1.2rem; margin: 0 0 0.4rem; color: #111 !important;">Perplexity AI</h3>
+                    <p style="font-size: 0.88rem; color: #555; margin: 0; line-height: 1.5;">Buscador y motor de investigación en tiempo real con fuentes verificadas.</p>
+                </div>
+
+                <!-- Tool 7: ChatGPT -->
+                <div class="bento-card tool-card" style="padding: 2.2rem; background: #fff;">
+                    <img src="./Links/logo_chatgpt.png" alt="Logo ChatGPT OpenAI" style="height: 36px; width: auto; object-fit: contain; margin-bottom: 0.8rem;">
+                    <h3 style="font-size: 1.2rem; margin: 0 0 0.4rem; color: #111 !important;">ChatGPT (OpenAI)</h3>
+                    <p style="font-size: 0.88rem; color: #555; margin: 0; line-height: 1.5;">Redacción comercial, análisis estructurado, visión artificial y diseño de prompts.</p>
+                </div>
+
+                <!-- Tool 8: NotebookLM -->
+                <div class="bento-card tool-card" style="padding: 2.2rem; background: #fff;">
+                    <img src="./Links/logo_notebooklm.svg" alt="Logo Google NotebookLM" style="height: 28px; width: auto; object-fit: contain; margin-bottom: 0.8rem;">
+                    <h3 style="font-size: 1.2rem; margin: 0 0 0.4rem; color: #111 !important;">Google NotebookLM</h3>
+                    <p style="font-size: 0.88rem; color: #555; margin: 0; line-height: 1.5;">Cerebro de conocimiento propio basado en fuentes, PDFs corporativos y actas.</p>
+                </div>
+
+                <!-- Tool 9: Supabase & Lovable -->
+                <div class="bento-card tool-card" style="padding: 2.2rem; background: #fff;">
+                    <div style="font-family: var(--font-heading); font-size: 1.6rem; font-weight: 900; color: #3ecf8e; margin-bottom: 0.6rem;">Supabase</div>
+                    <h3 style="font-size: 1.2rem; margin: 0 0 0.4rem; color: #111 !important;">Supabase & Lovable</h3>
+                    <p style="font-size: 0.88rem; color: #555; margin: 0; line-height: 1.5;">Bases de datos vectoriales (pgvector), persistencia RAG y prototipado rápido de software.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 7: INVERSIÓN Y BONIFICACIÓN FUNDAE (Dark Mode - Principio 1: Jerarquía de Precios y Principio 6: Proximidad de Contacto) -->
+    <section id="inversion" style="background: #000000; padding: 8rem 0; position: relative;">
+        <div class="parallax-bg" style="background-image: url('./Links/src/Recurso 2.svg'); opacity: 0.15;"></div>
+        <div class="container" style="position: relative; z-index: 2;">
+            <div style="text-align: left; margin-bottom: 4rem;">
+                <p style="font-family: var(--font-mono); color: var(--accent-color); font-size: 0.8rem; letter-spacing: 0.2em; margin-bottom: 1rem; text-transform: uppercase;">
+                    07 — INVERSIÓN Y FINANCIACIÓN
+                </p>
+                <h2 style="font-size: clamp(2.2rem, 4vw, 3.2rem); line-height: 1.1; text-transform: uppercase;">
+                    FORMACIÓN <br><span class="text-gradient">BONIFICABLE POR FUNDAE</span>
+                </h2>
+                <p style="color: #a3a3a3; font-size: 1.1rem; max-width: 650px; line-height: 1.7;">
+                    Las empresas disponen de un crédito anual para formación a través de la Fundación Estatal para la Formación en el Empleo (Fundae). ENAE gestiona todo el trámite de forma gratuita.
+                </p>
+            </div>
+
+            <!-- Pricing Breakdown Box -->
+            <div class="pricing-breakdown-card">
+                <div style="display: inline-block; background: rgba(212,166,0,0.15); border: 1px solid rgba(212,166,0,0.4); padding: 0.4rem 1rem; border-radius: 100px; font-family: var(--font-mono); font-size: 0.75rem; color: #ffd84d; text-transform: uppercase; font-weight: 700; margin-bottom: 1.5rem;">
+                    CRÉDITO DISPONIBLE 2026
+                </div>
+                <h3 style="font-size: 2.2rem; font-family: var(--font-heading); margin-bottom: 1rem; text-transform: uppercase;">
+                    Invierte con el máximo retorno operativo
+                </h3>
+                <p style="color: #ccc; max-width: 700px; line-height: 1.7; font-size: 1rem;">
+                    Cada curso tiene un coste de matrícula accesible, permitiendo recuperar la mayor parte a través de las bonificaciones a la Seguridad Social de tu organización.
+                </p>
+
+                <!-- 3 Calc Boxes (Principio 6: Proximidad de Ecuación Financiera) -->
+                <div class="pricing-calc-grid">
+                    <div class="calc-box">
+                        <div style="font-family: var(--font-mono); font-size: 0.75rem; color: #888; text-transform: uppercase;">PVP Oficial</div>
+                        <div style="font-size: 2.4rem; font-weight: 900; font-family: var(--font-heading); color: #fff; margin: 0.5rem 0;">495 €</div>
+                        <div style="font-size: 0.75rem; color: #aaa;">Por curso de 20 horas</div>
+                    </div>
+
+                    <div class="calc-box">
+                        <div style="font-family: var(--font-mono); font-size: 0.75rem; color: #22c55e; text-transform: uppercase;">Bonificación Fundae</div>
+                        <div style="font-size: 2.4rem; font-weight: 900; font-family: var(--font-heading); color: #22c55e; margin: 0.5rem 0;">-260 €</div>
+                        <div style="font-size: 0.75rem; color: #aaa;">Máximo bonificable por curso</div>
+                    </div>
+
+                    <div class="calc-box highlight">
+                        <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--secondary-accent); text-transform: uppercase; font-weight: 700;">Coste Potencial Neto</div>
+                        <div style="font-size: 2.8rem; font-weight: 900; font-family: var(--font-heading); color: var(--secondary-accent); margin: 0.3rem 0;">235 €*</div>
+                        <div style="font-size: 0.75rem; color: #ccc;">*Sujeto a crédito y requisitos</div>
+                    </div>
+
+                    <div style="padding: 1rem;">
+                        <div style="background: rgba(255,255,255,0.04); border-radius: 0.75rem; padding: 1.2rem; border: 1px solid rgba(255,255,255,0.08);">
+                            <div style="font-family: var(--font-mono); font-size: 0.8rem; color: #ffd84d; font-weight: 700; margin-bottom: 0.4rem;">
+                                ¿ERES AUTÓNOMO?
+                            </div>
+                            <p style="font-size: 0.82rem; color: #bbb; line-height: 1.5; margin: 0;">
+                                Disponemos de un <strong>descuento especial directo</strong> para profesionales independientes y autónomos. Consúltanos.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Agent Card (Sara Pedro Ros - Principio 6: Proximidad de Contacto) -->
+                <div class="contact-agent-card">
+                    <div style="width: 60px; height: 60px; border-radius: 50%; background: var(--accent-color); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: white; font-weight: 900; flex-shrink: 0; box-shadow: 0 0 20px rgba(168,23,48,0.5);">
+                        SP
+                    </div>
+                    <div style="flex: 1;">
+                        <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--secondary-accent); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700;">
+                            CONTACTO DIRECTO & ASESORAMIENTO FUNDAE
+                        </div>
+                        <h4 style="font-size: 1.3rem; margin: 0.2rem 0; color: #fff;">Sara Pedro Ros</h4>
+                        <p style="color: #888; font-size: 0.88rem; margin: 0;">Desarrollo de Negocio · ENAE Business School</p>
+                    </div>
+                    <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+                        <a href="tel:613310249" class="btn btn-secondary" style="padding: 0.7rem 1.2rem; font-size: 0.8rem;">
+                            <i class="fa-solid fa-phone" style="color: var(--secondary-accent); margin-right: 0.4rem;" aria-hidden="true"></i> 613 310 249
+                        </a>
+                        <a href="mailto:sara.pedro@enae.es" class="btn btn-secondary" style="padding: 0.7rem 1.2rem; font-size: 0.8rem;">
+                            <i class="fa-regular fa-envelope" style="color: var(--secondary-accent); margin-right: 0.4rem;" aria-hidden="true"></i> sara.pedro@enae.es
+                        </a>
+                        <a href="https://wa.me/34613310249?text=Hola%20Sara,%20me%20gustar%C3%ADa%20informaci%C3%B3n%20sobre%20los%20Cursos%20de%20Visi%C3%B3n%20IA%20de%20ENAE" target="_blank" class="btn btn-primary" style="padding: 0.7rem 1.4rem; font-size: 0.8rem;">
+                            <i class="fa-brands fa-whatsapp" style="margin-right: 0.4rem;" aria-hidden="true"></i> Chat WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 8: ENAE DIFERENCIA (Dark Mode - Principio 3: Coherencia de Marca) -->
+    <section id="enae-diferencia" style="background: #000000; padding: 7rem 0; position: relative; border-top: 1px solid rgba(255,255,255,0.05);">
+        <div class="container" style="position: relative; z-index: 2;">
+            <div class="bento-grid">
+                <div class="bento-card" style="grid-column: span 12; display: flex; flex-direction: column; gap: 1.5rem; justify-content: center; padding: 3.5rem; background: rgba(255,255,255,0.01); border: 1px solid rgba(168,23,48,0.15);">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem;">
+                        <span style="width: 30px; height: 1px; background: var(--accent-color);"></span>
+                        <span style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-color); letter-spacing: 0.2em; text-transform: uppercase;">
+                            ¿POR QUÉ ELEGIR ENAE?
+                        </span>
+                    </div>
+                    <h2 style="font-size: clamp(2.2rem, 3.5vw, 2.8rem); line-height: 1.1; margin: 0; text-transform: uppercase;">
+                        UNA ESCUELA DE NEGOCIOS <br><span class="text-gradient">DE REFERENCIA INTERNACIONAL</span>
+                    </h2>
+                    <p style="color: #ccc; font-size: 1.15rem; line-height: 1.8; max-width: 850px; margin: 0.5rem 0 0;">
+                        ENAE está posicionada como una de las escuelas de negocios más prestigiosas de España según los principales rankings independientes. Con más de 30 años formando directivos, combinamos el rigor académico con el impacto tecnológico inmediato en la empresa.
+                    </p>
+
+                    <div style="display: flex; gap: 4rem; margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 2rem; flex-wrap: wrap;">
+                        <div>
+                            <div style="font-size: 2.5rem; font-weight: 900; color: white; font-family: var(--font-heading); line-height: 1;">+30</div>
+                            <div style="font-size: 0.8rem; color: #777; font-family: var(--font-mono); text-transform: uppercase; margin-top: 0.5rem; letter-spacing: 0.1em;">Años formando líderes</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 2.5rem; font-weight: 900; color: white; font-family: var(--font-heading); line-height: 1;">TOP 5</div>
+                            <div style="font-size: 0.8rem; color: #777; font-family: var(--font-mono); text-transform: uppercase; margin-top: 0.5rem; letter-spacing: 0.1em;">Escuelas de Negocios en España</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 2.5rem; font-weight: 900; color: white; font-family: var(--font-heading); line-height: 1;">100%</div>
+                            <div style="font-size: 0.8rem; color: #777; font-family: var(--font-mono); text-transform: uppercase; margin-top: 0.5rem; letter-spacing: 0.1em;">Enfoque Práctico y Aplicado</div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 1.5rem;">
+                        <p style="font-family: var(--font-mono); font-size: 0.75rem; color: #666; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.2rem;">
+                            Rankings y Acreditaciones Destacadas
+                        </p>
+                        <div style="display: flex; gap: 3.5rem; align-items: center; flex-wrap: wrap;">
+                            <img src="./Links/Rankings/logo_ElMundo.png" alt="Ranking El Mundo" style="height: 48px; opacity: 0.7; filter: grayscale(1) brightness(1.8);">
+                            <img src="./Links/Rankings/logo_Forbes.png" alt="Ranking Forbes" style="height: 80px; opacity: 0.7; filter: grayscale(1) brightness(1.8);">
+                            <img src="./Links/Rankings/logo_QS.png" alt="Ranking QS Stars" style="height: 75px; opacity: 0.7; filter: grayscale(1) brightness(1.8);">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 9: CTA FINAL (Dark Mode - Principio 1: Cierre Jerárquico) -->
+    <section id="cta-final" style="background: linear-gradient(135deg, #000, #0a0a0a); padding: 8rem 0; border-top: 1px solid var(--border-color); text-align: center; position: relative;">
+        <div class="container" style="position: relative; z-index: 2; max-width: 820px;">
+            <p style="font-family: var(--font-mono); color: var(--accent-color); font-size: 0.85rem; letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 1.5rem;">
+                TRANSFORMA TU ACTIVIDAD HOY
+            </p>
+            <h2 style="font-size: clamp(2.4rem, 4.5vw, 3.4rem); line-height: 1.1; font-weight: 900; margin-bottom: 1.5rem; text-transform: uppercase;">
+                DA EL SALTO A LA IA <br>
+                <span class="text-gradient">CON EL RESPALDO DE ENAE</span>
+            </h2>
+            <p style="color: #a3a3a3; font-size: 1.15rem; line-height: 1.8; margin-bottom: 2.5rem;">
+                Elige tu nivel (Esencial, Avanzado o PRO) o asegura las plazas para todo tu equipo. Convocatorias limitadas por aula para garantizar mentoría individualizada.
+            </p>
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 1rem;">
+                <a href="#registro" class="btn btn-primary" style="padding: 1.1rem 3rem; font-size: 0.95rem; border-radius: 0.5rem; box-shadow: 0 10px 30px rgba(168,23,48,0.3);">
+                    SOLICITAR INFORMACIÓN Y RESERVAR MI PLAZA →
+                </a>
+                <p style="font-family: var(--font-mono); font-size: 0.72rem; color: #ffd84d; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; margin-top: 0.8rem;">
+                    ⚠ FORMACIÓN 100% BONIFICABLE POR FUNDAE · PLAZAS LIMITADAS
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="padding: 5rem 0 3rem; border-top: 1px solid var(--border-color); text-align: center; background: #000;">
+        <div class="container">
+            <img src="./Links/src/logo_enae.svg" alt="ENAE Business School Logo" style="height: 40px; margin-bottom: 2rem; opacity: 0.85;">
+
+            <div class="footer-social" style="display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 2rem;">
+                <a href="https://www.instagram.com/enaebusiness/#" target="_blank" aria-label="Instagram de ENAE"><i class="fa-brands fa-instagram" style="font-size: 1.1rem;" aria-hidden="true"></i></a>
+                <a href="https://x.com/ENAEbusiness?s=09" target="_blank" aria-label="Twitter X de ENAE"><i class="fa-brands fa-x-twitter" style="font-size: 1.1rem;" aria-hidden="true"></i></a>
+                <a href="https://www.linkedin.com/school/enae-business-school/" target="_blank" aria-label="LinkedIn de ENAE"><i class="fa-brands fa-linkedin-in" style="font-size: 1.1rem;" aria-hidden="true"></i></a>
+                <a href="https://www.youtube.com/enaebusiness" target="_blank" aria-label="YouTube de ENAE"><i class="fa-brands fa-youtube" style="font-size: 1.1rem;" aria-hidden="true"></i></a>
+                <a href="https://www.facebook.com/enaebusiness" target="_blank" aria-label="Facebook de ENAE"><i class="fa-brands fa-facebook-f" style="font-size: 1.1rem;" aria-hidden="true"></i></a>
+            </div>
+
+            <div class="footer-links" style="font-size: 0.8rem; color: #666; margin-bottom: 1.5rem;">
+                <a href="https://www.enae.es/condiciones-legales" target="_blank" style="color: #888;">Aviso legal</a> |
+                <a href="https://www.enae.es/politica-cookies" target="_blank" style="color: #888;">Política de cookies</a> |
+                <a href="https://www.enae.es/politica-de-privacidad" target="_blank" style="color: #888;">Política de privacidad</a>
+            </div>
+
+            <p style="color: #666; font-size: 0.75rem; font-family: var(--font-mono); margin: 0;">
+                © 2026 ENAE Business School. Lead Your Future. Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
